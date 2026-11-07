@@ -1,0 +1,12 @@
+source_repo: https://github.com/roywu0925/uwb-trajectory-degradation
+commit: 9bfc7b16b097c282fd5f1cd906b83460e5cadb53
+commit_date: 2026-11-03T19:16:27-08:00
+snapshot_taken: 2026-11-04T21:51:48Z
+files: README.md PART1_DETAIL.md CONTEXT.md TIER2A_RESULTS.md REPRODUCING.md
+note: no TIER*_SPEC.md files exist in the repo at this commit
+sha256:
+  bed0c2f40d8036e9db709a67b6d677af92efee172b52b9642ca5c385d7dc20c2  CONTEXT.md
+  bafd89d5f66547f561d96d4976d3aabadb7413b4850e98d518fa27e07db45a82  PART1_DETAIL.md
+  6b7de31b97d7305d2e3d52df159a0eef57e73fd391ac558bb60f0b233409d963  README.md
+  666e808c0486c07a0afd213a3eddfa54400787d32934f142667a50131f338a1e  REPRODUCING.md
+  19ad519c472f2e304d6aad9c07895e5846c24a341f7d002bf7be2543e2609783  TIER2A_RESULTS.md

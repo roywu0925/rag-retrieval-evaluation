@@ -1,0 +1,46 @@
+
+=== sigma=1.0 (rank spread assumption)   N_A=28 N_B=13
+ Tier A r@5 | test          | MDE @80%: true recall@5 gap | true MRR@5 gap
+   0.6      | fisher_r5     |    49 pts            | 0.23
+   0.6      | mwu_censored  |    44 pts            | 0.21
+   0.6      | perm_mrr      |    49 pts            | 0.23
+   0.6      | mwu_full      |    37 pts            | 0.19
+            (Tier A true MRR@5 = 0.26)
+   0.7      | fisher_r5     |    46 pts            | 0.26
+   0.7      | mwu_censored  |    46 pts            | 0.26
+   0.7      | perm_mrr      |    46 pts            | 0.26
+   0.7      | mwu_full      |    38 pts            | 0.23
+            (Tier A true MRR@5 = 0.34)
+   0.8      | fisher_r5     |    55 pts            | 0.35
+   0.8      | mwu_censored  |    46 pts            | 0.32
+   0.8      | perm_mrr      |    46 pts            | 0.32
+   0.8      | mwu_full      |    36 pts            | 0.27
+            (Tier A true MRR@5 = 0.44)
+   0.9      | fisher_r5     |    49 pts            | 0.43
+   0.9      | mwu_censored  |    39 pts            | 0.37
+   0.9      | perm_mrr      |    39 pts            | 0.37
+   0.9      | mwu_full      |    39 pts            | 0.37
+            (Tier A true MRR@5 = 0.58)
+
+=== sigma=1.5 (rank spread assumption)   N_A=28 N_B=13
+ Tier A r@5 | test          | MDE @80%: true recall@5 gap | true MRR@5 gap
+   0.6      | fisher_r5     |    49 pts            | 0.31
+   0.6      | mwu_censored  |    46 pts            | 0.29
+   0.6      | perm_mrr      |    46 pts            | 0.29
+   0.6      | mwu_full      |    37 pts            | 0.25
+            (Tier A true MRR@5 = 0.35)
+   0.7      | fisher_r5     |    49 pts            | 0.35
+   0.7      | mwu_censored  |    44 pts            | 0.33
+   0.7      | perm_mrr      |    49 pts            | 0.35
+   0.7      | mwu_full      |    44 pts            | 0.33
+            (Tier A true MRR@5 = 0.44)
+   0.8      | fisher_r5     |    49 pts            | 0.42
+   0.8      | mwu_censored  |    43 pts            | 0.38
+   0.8      | perm_mrr      |    43 pts            | 0.38
+   0.8      | mwu_full      |    36 pts            | 0.34
+            (Tier A true MRR@5 = 0.56)
+   0.9      | fisher_r5     |    49 pts            | 0.50
+   0.9      | mwu_censored  |    35 pts            | 0.40
+   0.9      | perm_mrr      |    35 pts            | 0.40
+   0.9      | mwu_full      |    35 pts            | 0.40
+            (Tier A true MRR@5 = 0.71)

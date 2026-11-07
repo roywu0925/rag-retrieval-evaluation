@@ -1,0 +1,350 @@
+[
+ {
+  "audit_id": 0,
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "baseline",
+  "rule_class": "OTHER"
+ },
+ {
+  "audit_id": 1,
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "baseline",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 2,
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "baseline",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 3,
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "baseline",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 4,
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "exclude_context",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 5,
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "exclude_context",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 6,
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "recency_git",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 7,
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "corrections_doc",
+  "rule_class": "OTHER"
+ },
+ {
+  "audit_id": 8,
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "corrections_doc",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 9,
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "corrections_doc",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 10,
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "corrections_doc",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 11,
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "baseline",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 12,
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "baseline",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 13,
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "baseline",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 14,
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "exclude_context",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 15,
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "exclude_context",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 16,
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "exclude_context",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 17,
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "recency_git",
+  "rule_class": "OTHER"
+ },
+ {
+  "audit_id": 18,
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "recency_git",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 19,
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "recency_git",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 20,
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "recency_git",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 21,
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "corrections_doc",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 22,
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "corrections_doc",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 23,
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "corrections_doc",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 24,
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "baseline",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 25,
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "baseline",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 26,
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "baseline",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 27,
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "baseline",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 28,
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "exclude_context",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 29,
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "recency_git",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 30,
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "recency_git",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 31,
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "recency_git",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 32,
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "recency_git",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 33,
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "corrections_doc",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 34,
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "corrections_doc",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 35,
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "corrections_doc",
+  "rule_class": "MIXED"
+ },
+ {
+  "audit_id": 36,
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "baseline",
+  "rule_class": "CURRENT"
+ },
+ {
+  "audit_id": 37,
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "baseline",
+  "rule_class": "CURRENT"
+ },
+ {
+  "audit_id": 38,
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "baseline",
+  "rule_class": "CURRENT"
+ },
+ {
+  "audit_id": 39,
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "exclude_context",
+  "rule_class": "CURRENT"
+ },
+ {
+  "audit_id": 40,
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "recency_git",
+  "rule_class": "CURRENT"
+ },
+ {
+  "audit_id": 41,
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "recency_git",
+  "rule_class": "CORRECT"
+ },
+ {
+  "audit_id": 42,
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "corrections_doc",
+  "rule_class": "CURRENT"
+ },
+ {
+  "audit_id": 43,
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "baseline",
+  "rule_class": "CORRECT"
+ },
+ {
+  "audit_id": 44,
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "exclude_context",
+  "rule_class": "CURRENT"
+ },
+ {
+  "audit_id": 45,
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "recency_git",
+  "rule_class": "CURRENT_FLAGGED"
+ },
+ {
+  "audit_id": 46,
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "recency_git",
+  "rule_class": "CURRENT"
+ },
+ {
+  "audit_id": 47,
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "recency_git",
+  "rule_class": "CURRENT"
+ },
+ {
+  "audit_id": 48,
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "recency_git",
+  "rule_class": "CORRECT"
+ },
+ {
+  "audit_id": 49,
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "corrections_doc",
+  "rule_class": "PROPAGATED"
+ },
+ {
+  "audit_id": 50,
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "baseline",
+  "rule_class": "PROPAGATED"
+ },
+ {
+  "audit_id": 51,
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "baseline",
+  "rule_class": "CURRENT"
+ },
+ {
+  "audit_id": 52,
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "exclude_context",
+  "rule_class": "CURRENT"
+ },
+ {
+  "audit_id": 53,
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "exclude_context",
+  "rule_class": "CURRENT"
+ },
+ {
+  "audit_id": 54,
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "recency_git",
+  "rule_class": "CORRECT"
+ },
+ {
+  "audit_id": 55,
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "corrections_doc",
+  "rule_class": "CURRENT_FLAGGED"
+ },
+ {
+  "audit_id": 56,
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "corrections_doc",
+  "rule_class": "PROPAGATED"
+ },
+ {
+  "audit_id": 57,
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "corrections_doc",
+  "rule_class": "CURRENT"
+ }
+]

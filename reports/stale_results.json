@@ -1,0 +1,437 @@
+{
+ "rates": {
+  "us.anthropic.claude-haiku-4-5-20251001-v1:0|baseline": {
+   "prop": 4,
+   "prop8": 2,
+   "cur": 5,
+   "abstain": 1,
+   "S1": 1,
+   "S2": 5,
+   "n": 11,
+   "prop_wilson": [
+    0.15166470989133157,
+    0.6461988273798758
+   ],
+   "classes": {
+    "CURRENT": 4,
+    "CURRENT_FLAGGED": 1,
+    "MIXED": 3,
+    "PROPAGATED": 1,
+    "OLD_FLAGGED": 0,
+    "ABSTAIN": 1,
+    "OTHER": 1
+   }
+  },
+  "us.anthropic.claude-haiku-4-5-20251001-v1:0|exclude_context": {
+   "prop": 5,
+   "prop8": 3,
+   "cur": 6,
+   "abstain": 0,
+   "S1": 3,
+   "S2": 6,
+   "n": 11,
+   "prop_wilson": [
+    0.21271271487637833,
+    0.7199084642140241
+   ],
+   "classes": {
+    "CURRENT": 5,
+    "CURRENT_FLAGGED": 1,
+    "MIXED": 2,
+    "PROPAGATED": 3,
+    "OLD_FLAGGED": 0,
+    "ABSTAIN": 0,
+    "OTHER": 0
+   }
+  },
+  "us.anthropic.claude-haiku-4-5-20251001-v1:0|recency_git": {
+   "prop": 5,
+   "prop8": 2,
+   "cur": 5,
+   "abstain": 1,
+   "S1": 4,
+   "S2": 5,
+   "n": 11,
+   "prop_wilson": [
+    0.21271271487637833,
+    0.7199084642140241
+   ],
+   "classes": {
+    "CURRENT": 4,
+    "CURRENT_FLAGGED": 1,
+    "MIXED": 1,
+    "PROPAGATED": 4,
+    "OLD_FLAGGED": 0,
+    "ABSTAIN": 1,
+    "OTHER": 0
+   }
+  },
+  "us.anthropic.claude-haiku-4-5-20251001-v1:0|corrections_doc": {
+   "prop": 4,
+   "prop8": 2,
+   "cur": 5,
+   "abstain": 1,
+   "S1": 1,
+   "S2": 5,
+   "n": 11,
+   "prop_wilson": [
+    0.15166470989133157,
+    0.6461988273798758
+   ],
+   "classes": {
+    "CURRENT": 4,
+    "CURRENT_FLAGGED": 1,
+    "MIXED": 3,
+    "PROPAGATED": 1,
+    "OLD_FLAGGED": 0,
+    "ABSTAIN": 1,
+    "OTHER": 1
+   }
+  },
+  "us.anthropic.claude-sonnet-4-6|baseline": {
+   "prop": 5,
+   "prop8": 2,
+   "cur": 6,
+   "abstain": 0,
+   "S1": 2,
+   "S2": 5,
+   "n": 11,
+   "prop_wilson": [
+    0.21271271487637833,
+    0.7199084642140241
+   ],
+   "classes": {
+    "CURRENT": 4,
+    "CURRENT_FLAGGED": 2,
+    "MIXED": 3,
+    "PROPAGATED": 2,
+    "OLD_FLAGGED": 0,
+    "ABSTAIN": 0,
+    "OTHER": 0
+   }
+  },
+  "us.anthropic.claude-sonnet-4-6|exclude_context": {
+   "prop": 4,
+   "prop8": 3,
+   "cur": 7,
+   "abstain": 0,
+   "S1": 1,
+   "S2": 4,
+   "n": 11,
+   "prop_wilson": [
+    0.15166470989133157,
+    0.6461988273798758
+   ],
+   "classes": {
+    "CURRENT": 5,
+    "CURRENT_FLAGGED": 2,
+    "MIXED": 3,
+    "PROPAGATED": 1,
+    "OLD_FLAGGED": 0,
+    "ABSTAIN": 0,
+    "OTHER": 0
+   }
+  },
+  "us.anthropic.claude-sonnet-4-6|recency_git": {
+   "prop": 4,
+   "prop8": 2,
+   "cur": 6,
+   "abstain": 0,
+   "S1": 1,
+   "S2": 4,
+   "n": 11,
+   "prop_wilson": [
+    0.15166470989133157,
+    0.6461988273798758
+   ],
+   "classes": {
+    "CURRENT": 4,
+    "CURRENT_FLAGGED": 2,
+    "MIXED": 3,
+    "PROPAGATED": 1,
+    "OLD_FLAGGED": 0,
+    "ABSTAIN": 0,
+    "OTHER": 1
+   }
+  },
+  "us.anthropic.claude-sonnet-4-6|corrections_doc": {
+   "prop": 5,
+   "prop8": 2,
+   "cur": 6,
+   "abstain": 0,
+   "S1": 2,
+   "S2": 5,
+   "n": 11,
+   "prop_wilson": [
+    0.21271271487637833,
+    0.7199084642140241
+   ],
+   "classes": {
+    "CURRENT": 4,
+    "CURRENT_FLAGGED": 2,
+    "MIXED": 3,
+    "PROPAGATED": 2,
+    "OLD_FLAGGED": 0,
+    "ABSTAIN": 0,
+    "OTHER": 0
+   }
+  },
+  "us.anthropic.claude-opus-4-6-v1|baseline": {
+   "prop": 5,
+   "prop8": 2,
+   "cur": 6,
+   "abstain": 0,
+   "S1": 1,
+   "S2": 5,
+   "n": 11,
+   "prop_wilson": [
+    0.21271271487637833,
+    0.7199084642140241
+   ],
+   "classes": {
+    "CURRENT": 4,
+    "CURRENT_FLAGGED": 2,
+    "MIXED": 4,
+    "PROPAGATED": 1,
+    "OLD_FLAGGED": 0,
+    "ABSTAIN": 0,
+    "OTHER": 0
+   }
+  },
+  "us.anthropic.claude-opus-4-6-v1|exclude_context": {
+   "prop": 2,
+   "prop8": 1,
+   "cur": 9,
+   "abstain": 0,
+   "S1": 1,
+   "S2": 3,
+   "n": 11,
+   "prop_wilson": [
+    0.051367689278583956,
+    0.47698056435423286
+   ],
+   "classes": {
+    "CURRENT": 5,
+    "CURRENT_FLAGGED": 4,
+    "MIXED": 1,
+    "PROPAGATED": 1,
+    "OLD_FLAGGED": 0,
+    "ABSTAIN": 0,
+    "OTHER": 0
+   }
+  },
+  "us.anthropic.claude-opus-4-6-v1|recency_git": {
+   "prop": 5,
+   "prop8": 2,
+   "cur": 6,
+   "abstain": 0,
+   "S1": 1,
+   "S2": 5,
+   "n": 11,
+   "prop_wilson": [
+    0.21271271487637833,
+    0.7199084642140241
+   ],
+   "classes": {
+    "CURRENT": 4,
+    "CURRENT_FLAGGED": 2,
+    "MIXED": 4,
+    "PROPAGATED": 1,
+    "OLD_FLAGGED": 0,
+    "ABSTAIN": 0,
+    "OTHER": 0
+   }
+  },
+  "us.anthropic.claude-opus-4-6-v1|corrections_doc": {
+   "prop": 4,
+   "prop8": 2,
+   "cur": 7,
+   "abstain": 0,
+   "S1": 1,
+   "S2": 4,
+   "n": 11,
+   "prop_wilson": [
+    0.15166470989133157,
+    0.6461988273798758
+   ],
+   "classes": {
+    "CURRENT": 4,
+    "CURRENT_FLAGGED": 3,
+    "MIXED": 3,
+    "PROPAGATED": 1,
+    "OLD_FLAGGED": 0,
+    "ABSTAIN": 0,
+    "OTHER": 0
+   }
+  }
+ },
+ "tests": {
+  "us.anthropic.claude-haiku-4-5-20251001-v1:0|exclude_context": {
+   "fixed": 1,
+   "broken": 2,
+   "both": 3,
+   "neither": 5,
+   "drop": -0.09090909090909088,
+   "ci": [
+    -0.3456422273851782,
+    0.18662329527578725
+   ],
+   "p": 1.0,
+   "p_holm": 1.0
+  },
+  "us.anthropic.claude-haiku-4-5-20251001-v1:0|recency_git": {
+   "fixed": 0,
+   "broken": 1,
+   "both": 4,
+   "neither": 6,
+   "drop": -0.09090909090909088,
+   "ci": [
+    -0.23987751860313464,
+    0.06769311839168515
+   ],
+   "p": 1.0,
+   "p_holm": 1.0
+  },
+  "us.anthropic.claude-sonnet-4-6|exclude_context": {
+   "fixed": 2,
+   "broken": 1,
+   "both": 3,
+   "neither": 5,
+   "drop": 0.09090909090909088,
+   "ci": [
+    -0.18662329527578725,
+    0.3456422273851782
+   ],
+   "p": 1.0,
+   "p_holm": 1.0
+  },
+  "us.anthropic.claude-sonnet-4-6|recency_git": {
+   "fixed": 1,
+   "broken": 0,
+   "both": 4,
+   "neither": 6,
+   "drop": 0.09090909090909088,
+   "ci": [
+    -0.06769311839168515,
+    0.23987751860313467
+   ],
+   "p": 1.0,
+   "p_holm": 1.0
+  },
+  "us.anthropic.claude-opus-4-6-v1|exclude_context": {
+   "fixed": 3,
+   "broken": 0,
+   "both": 2,
+   "neither": 6,
+   "drop": 0.2727272727272727,
+   "ci": [
+    0.004617157667190952,
+    0.5000658911056214
+   ],
+   "p": 0.25,
+   "p_holm": 0.5
+  },
+  "us.anthropic.claude-opus-4-6-v1|recency_git": {
+   "fixed": 0,
+   "broken": 0,
+   "both": 5,
+   "neither": 6,
+   "drop": 0.0,
+   "ci": [
+    -0.02353026999949332,
+    0.02353026999949347
+   ],
+   "p": 1.0,
+   "p_holm": 1.0
+  }
+ },
+ "noise": {
+  "us.anthropic.claude-haiku-4-5-20251001-v1:0": {
+   "identical_prompts": 12,
+   "text_diff": 0,
+   "class_diff": 0
+  },
+  "us.anthropic.claude-sonnet-4-6": {
+   "identical_prompts": 12,
+   "text_diff": 5,
+   "class_diff": 0
+  },
+  "us.anthropic.claude-opus-4-6-v1": {
+   "identical_prompts": 12,
+   "text_diff": 7,
+   "class_diff": 1
+  }
+ },
+ "order_flags": [
+  {
+   "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+   "line": "S1",
+   "headline": {
+    "baseline": 4,
+    "exclude_context": 5,
+    "recency_git": 5
+   },
+   "sensitivity": {
+    "baseline": 1,
+    "exclude_context": 3,
+    "recency_git": 4
+   }
+  },
+  {
+   "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+   "line": "S2",
+   "headline": {
+    "baseline": 4,
+    "exclude_context": 5,
+    "recency_git": 5
+   },
+   "sensitivity": {
+    "baseline": 5,
+    "exclude_context": 6,
+    "recency_git": 5
+   }
+  },
+  {
+   "arm": "us.anthropic.claude-opus-4-6-v1",
+   "line": "S1",
+   "headline": {
+    "baseline": 5,
+    "exclude_context": 2,
+    "recency_git": 5
+   },
+   "sensitivity": {
+    "baseline": 1,
+    "exclude_context": 1,
+    "recency_git": 1
+   }
+  }
+ ],
+ "x1": {},
+ "crosstab": {
+  "baseline": {
+   "both|current": 15,
+   "old-only|neither": 1,
+   "both|propagated": 6,
+   "current-only|neither": 1,
+   "old-only|propagated": 8,
+   "current-only|current": 2
+  },
+  "exclude_context": {
+   "both|current": 12,
+   "old-only|propagated": 3,
+   "both|propagated": 6,
+   "neither|propagated": 1,
+   "current-only|current": 8,
+   "current-only|propagated": 1,
+   "neither|current": 2
+  },
+  "recency_git": {
+   "both|current": 15,
+   "old-only|propagated": 8,
+   "both|propagated": 6,
+   "current-only|neither": 1,
+   "old-only|neither": 1,
+   "current-only|current": 2
+  }
+ }
+}

@@ -1,0 +1,1 @@
+{"model": "titan-v2", "config": {"chunk_size": 1024, "overlap_pct": 0.095}, "tag": "", "n_chunks": 64, "dim": 1024, "overlap_measured": {"pct": 8.42013888888889, "pct_all": 4.3280626899802, "n_continuation": 18, "n_chunks": 64}}

@@ -1,0 +1,34 @@
+[
+ {
+  "section": [
+   "README.md",
+   "Methodology"
+  ],
+  "question": "What percentage of plays in the NFL tracking dataset have a ball flight reaching 3 seconds, and what primary horizon was chosen instead?",
+  "reason": "generator evidence quote not verbatim in section"
+ },
+ {
+  "section": [
+   "PART1_DETAIL.md",
+   "Results > Tier 1: degradation sweep"
+  ],
+  "question": "In the degradation sweep's coupled scenario (\u03c3_ball = \u03c3_player) at \u03c3=5, which predictor ranked first (best) and which ranked last (worst) at the primary 1.9s horizon under the quadrature convention?",
+  "reason": "generator evidence quote not verbatim in section"
+ },
+ {
+  "section": [
+   "CONTEXT.md",
+   "The framing, and why it is this one"
+  ],
+  "question": "What is the data update rate used in the end-to-end streaming trajectory-prediction system described in the project's resume line?",
+  "reason": "generator evidence quote not verbatim in section"
+ },
+ {
+  "section": [
+   "REPRODUCING.md",
+   "Reproducing"
+  ],
+  "question": "What is the measured model-training time (out of the total end-to-end budget) when reproducing the NFL Big Data Bowl project on CPU-only Apple Silicon hardware?",
+  "reason": "generator evidence quote not verbatim in section"
+ }
+]

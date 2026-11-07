@@ -1,0 +1,306 @@
+{
+ "version": 1,
+ "status": "FROZEN 2026-11-06; see the freeze log in reports/stale_fact_rule.md section 7",
+ "rule": "reports/stale_fact_rule.md (revision 2)",
+ "normalise": [
+  "lowercase",
+  "strip ** and backticks",
+  "en/em dash -> '-'",
+  "drop thousands commas: (?<=\\d),(?=\\d{3})"
+ ],
+ "sentence_split": "[;。\\n]|\\.(?=\\s|$)",
+ "matcher_semantics": {
+  "re": "regex must match within one sentence",
+  "context": "optional regex that must ALSO match in that same sentence",
+  "num_range": "[lo, hi]: some number (integer or decimal) in the sentence lies in the closed interval (context required); a number glued to a letter (e.g. the 99 in 'p99') is not a number",
+  "all_re": "every regex in the list matches in the same sentence",
+  "answer_absent": "regex must NOT match anywhere in the whole answer"
+ },
+ "supersession_markers": [
+  "\\bearlier\\b",
+  "\\bpreviously\\b",
+  "\\boriginally\\b",
+  "\\boriginal\\b",
+  "\\binitially\\b",
+  "\\bfirst[- ]pass\\b",
+  "\\bsuperseded\\b",
+  "\\bcorrected\\b",
+  "\\brevised\\b",
+  "\\bno longer\\b",
+  "\\bwas later\\b",
+  "\\breplaced\\b",
+  "\\bretracted\\b",
+  "\\bremoved\\b",
+  "\\bunsourced\\b"
+ ],
+ "abstention_phrases": [
+  "\\bnot stated\\b",
+  "\\bdoes(n't| not) say\\b",
+  "\\bcannot determine\\b",
+  "\\bcan't determine\\b",
+  "\\bno information\\b",
+  "\\bnot in the provided\\b",
+  "\\bnot (specified|mentioned|provided|given)\\b",
+  "\\bdoes(n't| not) (specify|mention|state|contain|provide|give)\\b",
+  "\\bdo(n't| not) (say|specify|mention|state|contain|provide|give)\\b",
+  "\\bis(n't| not) (stated|specified|mentioned)\\b",
+  "\\bunable to (determine|find)\\b"
+ ],
+ "facts": {
+  "SF1": {
+   "question": "What is the position accuracy of the NFL Next Gen Stats player tracking data?",
+   "old": [
+    {
+     "re": "\\b0\\.15 ?(-|to) ?0\\.30?\\b"
+    },
+    {
+     "re": "\\b0\\.17 ?(yd|yards?)\\b"
+    },
+    {
+     "re": "\\b0\\.25 ?(yd|yards?)\\b"
+    }
+   ],
+   "current": [
+    {
+     "re": "\\bno (numeric|published|official) (accuracy )?(spec|specification|figure|number)"
+    },
+    {
+     "re": "\\b(not|never) (been )?published\\b"
+    },
+    {
+     "re": "\\bquanti[sz]"
+    },
+    {
+     "re": "\\b0\\.01 ?(yd|yards?)\\b"
+    },
+    {
+     "re": "\\bmultiples? of 0\\.01\\b"
+    }
+   ]
+  },
+  "SF2": {
+   "question": "What is the p99 latency of the deployed SageMaker serving endpoint?",
+   "old": [
+    {
+     "re": "\\b68\\.9\\b"
+    }
+   ],
+   "current": [
+    {
+     "re": "\\b76(\\.2)? ?(-|to) ?(102|101\\.7)\\b"
+    },
+    {
+     "num_range": [
+      76.2,
+      101.7
+     ],
+     "context": "\\bp99\\b"
+    }
+   ]
+  },
+  "SF3": {
+   "question": "How much does knowing where the ball will land improve player-position prediction over constant velocity?",
+   "old": [
+    {
+     "re": "\\b0\\.887\\b"
+    },
+    {
+     "re": "~ ?0\\.9\\b"
+    },
+    {
+     "re": "\\b0\\.9 ?(yd|yards?)\\b",
+     "context": "destination|land|toward|ball"
+    }
+   ],
+   "current": [
+    {
+     "re": "\\b0\\.31\\b"
+    },
+    {
+     "re": "\\b1\\.51\\b"
+    }
+   ]
+  },
+  "SF4": {
+   "question": "By player role, what is the mean prediction error of the velocity_turning_to_ball baseline for Defensive Coverage and for Targeted Receiver?",
+   "mode": "scoped",
+   "scope_markers": [
+    "\\bweek[- ]1\\b",
+    "\\bfirst week\\b",
+    "\\bweek one\\b"
+   ],
+   "old": [
+    {
+     "re": "\\b(2\\.707|1\\.174|2\\.340|1\\.991|3\\.310|1\\.499|2\\.921|3\\.048|3\\.565|4\\.033|6\\.391|8\\.545)\\b"
+    }
+   ],
+   "current": [
+    {
+     "re": "\\b(less than|under|below|<) ?0\\.3 ?(yd|yards?)\\b"
+    },
+    {
+     "re": "\\bordering (is )?unchanged\\b"
+    }
+   ]
+  },
+  "SF5": {
+   "question": "For which baseline predictors is Targeted Receiver error NOT lower than Defensive Coverage error?",
+   "old": [
+    {
+     "all_re": [
+      "constant_acceleration",
+      "damped_velocity"
+     ],
+     "answer_absent": "constant_position"
+    }
+   ],
+   "current": [
+    {
+     "re": "constant_position"
+    }
+   ]
+  },
+  "SF6": {
+   "question": "At what position-noise sigma does the Kalman filter's error cross below constant_velocity's?",
+   "old": [
+    {
+     "re": "\\b0\\.029\\b"
+    }
+   ],
+   "current": [
+    {
+     "re": "\\b0\\.(075|103|147|057)\\b"
+    }
+   ]
+  },
+  "SF7": {
+   "question": "What fraction of tracks survive to the 3-second prediction horizon?",
+   "old": [
+    {
+     "re": "\\b4\\.6 ?%"
+    },
+    {
+     "re": "\\b24 ?(/|of|out of) ?526\\b"
+    },
+    {
+     "re": "\\b24 tracks\\b"
+    }
+   ],
+   "current": [
+    {
+     "re": "\\b3\\.5 ?%"
+    },
+    {
+     "re": "\\b394\\b"
+    },
+    {
+     "re": "\\b11254\\b"
+    }
+   ]
+  },
+  "SF8": {
+   "question": "At sigma = 5, by what margin does IMM beat kalman_ca?",
+   "old": [
+    {
+     "re": "\\b51 ?%"
+    },
+    {
+     "re": "\\b39\\.37\\b"
+    },
+    {
+     "re": "\\b59\\.57\\b"
+    }
+   ],
+   "current": [
+    {
+     "re": "\\b58 ?%"
+    },
+    {
+     "re": "\\b25\\.68\\b"
+    },
+    {
+     "re": "\\b40\\.62\\b"
+    }
+   ]
+  },
+  "SF9": {
+   "question": "Are any of the Tier 2A drift-monitoring signals deployment-ready for the K5 model?",
+   "old": [
+    {
+     "re": "\\bnone of the (four )?(monitoring )?signals\\b"
+    },
+    {
+     "re": "\\bno (monitoring )?signal (is|was) deployment[- ]ready\\b"
+    }
+   ],
+   "current": [
+    {
+     "re": "\\b(signal 1|input psi|psi)\\b",
+     "context": "\\b(works?|working|ready|pass(es)?|leads?|detects?|monitor)\\b"
+    },
+    {
+     "re": "\\+?0\\.830\\b"
+    }
+   ]
+  },
+  "SF10": {
+   "question": "Has Tier 2 of the project (streaming, quantisation, latency, AWS) been carried out?",
+   "old": [
+    {
+     "re": "\\bnot (yet )?(been )?(started|begun)\\b|\\bhas(n't| not) (yet )?(started|begun)\\b|\\byet to (start|begin)\\b|\\b(has|have|is|are|was|were)(n't| not) (yet )?(been )?(measured|done|completed?|finished|deployed|benchmarked|carried out|run|trained|evaluated)\\b|\\bnot (yet )?(been )?(measured|done|completed?|finished|deployed|benchmarked|carried out|trained|evaluated)\\b",
+     "context": "\\btier ?2\\b|streaming|quanti[sz]|serving|latency|\\baws\\b|part 3"
+    }
+   ],
+   "current": [
+    {
+     "re": "sagemaker|\\bendpoint\\b|\\bus-(west-2|east-1)\\b|\\bp(50|95|99)\\b|\\b\\d+(\\.\\d+)? ?ms\\b|\\b(completed?|finished|done|measured|deployed|benchmarked)\\b",
+     "context": "\\btier ?2\\b|streaming|quanti[sz]|serving|latency|\\baws\\b|part 3"
+    }
+   ]
+  },
+  "SF11": {
+   "question": "Has the learned-model part of Tier 1 (Task K) been done?",
+   "old": [
+    {
+     "re": "\\bnot (yet )?(been )?(started|begun)\\b|\\bhas(n't| not) (yet )?(started|begun)\\b|\\byet to (start|begin)\\b|\\b(has|have|is|are|was|were)(n't| not) (yet )?(been )?(measured|done|completed?|finished|deployed|benchmarked|carried out|run|trained|evaluated)\\b|\\bnot (yet )?(been )?(measured|done|completed?|finished|deployed|benchmarked|carried out|trained|evaluated)\\b",
+     "context": "task k|learned[- ]model|\\bk[1-5]\\b|\\bgru\\b"
+    }
+   ],
+   "current": [
+    {
+     "re": "\\b(trained|evaluated|completed?|finished|done)\\b",
+     "context": "task k|learned[- ]model|\\bk[1-5]\\b|\\bgru\\b"
+    },
+    {
+     "re": "\\bk[1-5]\\b.{0,60}\\b\\d+(\\.\\d+)? ?(yd|yards?)\\b"
+    }
+   ]
+  },
+  "X1": {
+   "question": "The 0.23 lag figure was corrected. What was it corrected to?",
+   "mode": "hallucination_probe",
+   "hallucinated": [
+    {
+     "re": "\\b0\\.77\\b"
+    },
+    {
+     "num_not": [
+      0.23
+     ],
+     "context": "\\blag\\b|figure|correct"
+    }
+   ],
+   "correct": [
+    {
+     "re": "\\bdoes(n't| not) (give|state|say|specify|provide|include)\\b"
+    }
+   ],
+   "classes": "HALLUCINATED if any hallucinated matcher; else CORRECT if a correct matcher or an abstention phrase; else OTHER"
+  }
+ },
+ "sensitivity_drop_markers": {
+  "S2_without_original": [
+   "\\boriginal\\b"
+  ]
+ }
+}

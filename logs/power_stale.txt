@@ -1,0 +1,23 @@
+
+=== n = 11 per cell (the design: 11 facts)
+ baseline p0 | wilson_overlap | fisher (unpaired) | mcnemar b=0 | mcnemar b=0.1
+    0.3      | not reached    | not reached       | not reached | not reached
+    0.5      | not reached    | not reached       | not reached | not reached
+    0.7      | -67 pts        | -62 pts           | -63 pts     | not reached
+    0.9      | -71 pts        | -63 pts           | -63 pts     | -65 pts
+
+=== n = 22 per cell (if facts x phrasings were independent (OPTIMISTIC, see note))
+ baseline p0 | wilson_overlap | fisher (unpaired) | mcnemar b=0 | mcnemar b=0.1
+    0.3      | not reached    | -30 pts           | not reached | not reached
+    0.5      | -46 pts        | -41 pts           | -34 pts     | -43 pts
+    0.7      | -53 pts        | -46 pts           | -34 pts     | -40 pts
+    0.9      | -49 pts        | -41 pts           | -34 pts     | -36 pts
+
+=== n = 33 per cell (if facts x phrasings were independent (OPTIMISTIC, see note))
+ baseline p0 | wilson_overlap | fisher (unpaired) | mcnemar b=0 | mcnemar b=0.1
+    0.3      | -30 pts        | -27 pts           | -23 pts     | not reached
+    0.5      | -40 pts        | -35 pts           | -23 pts     | -32 pts
+    0.7      | -44 pts        | -36 pts           | -23 pts     | -29 pts
+    0.9      | -40 pts        | -32 pts           | -23 pts     | -25 pts
+
+McNemar floor at n=11: the smallest rejecting outcome is 6 fixed / 0 broken (p = 0.031); 5/0 gives p = 0.0625.

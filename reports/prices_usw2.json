@@ -1,0 +1,17 @@
+{
+  "source": "AWS Price List bulk files (public, same data as Pricing API GetProducts, which this IAM user is denied)",
+  "files": {
+    "AmazonBedrock/20261102165015/us-west-2": "Titan",
+    "AmazonBedrockFoundationModels/20261012084008/us-west-2": "Anthropic, Cohere (Marketplace)"
+  },
+  "usd_per_1M_tokens_on_demand_us_west_2": {
+    "amazon.titan-embed-text-v2": {"input": 0.02},
+    "cohere.embed-english-v3": {"input": 0.10},
+    "cohere.embed-v4": {"input": 0.12},
+    "claude-haiku-5-5": {"input_regional": 0.11, "output_regional": 0.55, "input_global": 0.10, "output_global": 0.50},
+    "claude-sonnet-5-5": {"input_regional": 2.20, "output_regional": 11.00, "input_global": 2.00, "output_global": 10.00},
+    "claude-haiku-4-5": {"input_regional": 1.10, "output_regional": 5.50, "input_global": 1.00, "output_global": 5.00},
+    "claude-sonnet-4-5": {"input_regional": 3.30, "output_regional": 16.50, "input_global": 3.00, "output_global": 15.00}
+  },
+  "note": "Price-list presence does not prove the model is enabled for this account; bedrock:ListFoundationModels was denied."
+}

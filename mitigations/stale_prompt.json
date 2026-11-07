@@ -1,0 +1,45 @@
+{
+ "used_by": "stale-fact runs (all 4 conditions) AND the sweep answer calls. One prompt for both, so the stale-fact baseline is the sweep's own baseline.",
+ "template": "Answer the question using only the documentation excerpts below. Each excerpt begins with a label of the form [file > section].\n\n{excerpts}\n\n{recency_sentence}Question: {question}\n\nAnswer in at most three sentences, using only information in the excerpts. If the excerpts do not contain the answer, say that the documentation provided does not say. Then, on a new line, write \"Sources:\" followed by the labels of the excerpts you used.",
+ "excerpt_format": "each retrieved chunk's text verbatim (it already starts with its [FILE > path] prefix), chunks separated by a blank line, in retrieval rank order",
+ "recency_label_suffix": "in the recency condition only, the first line's label becomes [FILE > path | last updated <ISO datetime from recency_metadata.json>]",
+ "recency_sentence": "If excerpts disagree, prefer the excerpt from the most recently updated file.\n\n",
+ "recency_sentence_used_in": "recency condition only; empty string in the other three",
+ "inference_config": {
+  "maxTokens": 300,
+  "temperature": 0
+ },
+ "no_seed_note": "Bedrock Converse for Claude has no seed parameter. temperature 0 reduces but does not guarantee run-to-run identity.",
+ "design": {
+  "retrieval_config": "base index titan-v2_cs512_ov100, top-k 5 (sweep BASE)",
+  "questions": "12 = SF1-SF11 + X1, from eval/stale_patterns.json",
+  "conditions": {
+   "baseline": "base index, plain prompt",
+   "exclude_context": "base index with CONTEXT.md chunks removed before ranking (same embeddings; no rebuild)",
+   "recency_git": "base index, recency label suffix + recency_sentence Dates: recency_metadata.json -> recency_git.",
+   "corrections_doc": "base index PLUS mitigations/CORRECTIONS.md chunked by the same chunker (512/10%) and embedded with Titan v2. Retrieval decides whether it is reached; it is not forced into the context PRE-RUN DIAGNOSTIC (logs/corrections_rank_diagnostic.json): no corrections chunk reaches top-5 for any of the 12 questions, so every corrections_doc prompt is IDENTICAL to its baseline twin. These 36 answers are labelled REPEATS OF BASELINE and used as the per-arm noise floor: per arm, the number of the 12 answers that differ textually from their baseline twin, and the number that change class."
+  },
+  "arms": [
+   "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+   "us.anthropic.claude-sonnet-4-6",
+   "us.anthropic.claude-opus-4-6-v1"
+  ],
+  "calls": "12 x 4 x 3 = 144",
+  "logged_per_answer": [
+   "fact",
+   "condition",
+   "arm",
+   "retrieved chunk ids + ranks",
+   "retrieval class (rule section 3)",
+   "raw answer",
+   "class",
+   "S1 class",
+   "S2 class",
+   "usage tokens",
+   "latency_ms",
+   "patterns sha256"
+  ],
+  "stability_check": "Baseline condition, Haiku 4.5 arm, run twice (24 calls) AFTER the stage-1 freeze and BEFORE the main run. Report: how many of 12 answers differ at all, and how many change class. Kept in logs/stale_stability.jsonl and never used as results."
+ },
+ "abstention_caveat": "Abstention is measured UNDER an explicit abstention instruction ('say that the documentation provided does not say'). Every abstention rate in this study is therefore an UPPER BOUND on unprompted abstention behaviour. This applies to the stale-fact ABSTAIN class and the X1 probe, and to Tier B's unanswerable/unsettled questions (B02, B06), which are scored on this behaviour. The caveat travels with those results."
+}

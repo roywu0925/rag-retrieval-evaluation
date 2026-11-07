@@ -1,0 +1,36 @@
+== titan-v2_cs256_ov10
+total chunks              : 178
+uncached chunks           : 158  (~35256 cl100k tokens)
+estimated cost            : $0.00071  (at $0.02/1M; full index $0.00076)
+built /Users/roywu0925/Desktop/AI + Cloud project/indexes/titan-v2_cs256_ov10
+billed tokens this run    : 35414  -> $0.00071
+== titan-v2_cs1024_ov10
+total chunks              : 64
+uncached chunks           : 37  (~29379 cl100k tokens)
+estimated cost            : $0.00059  (at $0.02/1M; full index $0.00072)
+built /Users/roywu0925/Desktop/AI + Cloud project/indexes/titan-v2_cs1024_ov10
+billed tokens this run    : 29416  -> $0.00059
+== titan-v2_cs512_ov0
+total chunks              : 96
+uncached chunks           : 50  (~18887 cl100k tokens)
+estimated cost            : $0.00038  (at $0.02/1M; full index $0.00070)
+built /Users/roywu0925/Desktop/AI + Cloud project/indexes/titan-v2_cs512_ov0
+billed tokens this run    : 18937  -> $0.00038
+== titan-v2_cs512_ov25
+total chunks              : 107
+uncached chunks           : 57  (~24287 cl100k tokens)
+estimated cost            : $0.00049  (at $0.02/1M; full index $0.00084)
+built /Users/roywu0925/Desktop/AI + Cloud project/indexes/titan-v2_cs512_ov25
+billed tokens this run    : 24344  -> $0.00049
+== titan-v2_cs256_ov12
+total chunks              : 181
+uncached chunks           : 98  (~21430 cl100k tokens)
+estimated cost            : $0.00043  (at $0.02/1M; full index $0.00078)
+built /Users/roywu0925/Desktop/AI + Cloud project/indexes/titan-v2_cs256_ov12
+billed tokens this run    : 21528  -> $0.00043
+== titan-v2_cs1024_ov10
+total chunks              : 64
+uncached chunks           : 2  (~1168 cl100k tokens)
+estimated cost            : $0.00002  (at $0.02/1M; full index $0.00072)
+built /Users/roywu0925/Desktop/AI + Cloud project/indexes/titan-v2_cs1024_ov10
+billed tokens this run    : 1170  -> $0.00002

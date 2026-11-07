@@ -1,0 +1,201 @@
+[
+ {
+  "id": "SF1",
+  "quantity": "NGS position accuracy",
+  "status": "confirmed",
+  "old": "0.15-0.30 yd 'published range'",
+  "current": "no numeric spec published; measured stream quantized to 0.01 yd, no detectable noise above that step",
+  "old_sites": [
+   "CONTEXT.md:346",
+   "CONTEXT.md:380",
+   "CONTEXT.md:503",
+   "PART1_DETAIL.md:412",
+   "PART1_DETAIL.md:436",
+   "PART1_DETAIL.md:460",
+   "PART1_DETAIL.md:629",
+   "PART1_DETAIL.md:633",
+   "PART1_DETAIL.md:886"
+  ],
+  "current_sites": [
+   "PART1_DETAIL.md:623-640",
+   "CONTEXT.md:343-346",
+   "README.md:383"
+  ],
+  "marker": "inline retraction at every site ('unsourced', 'fabricated and has been removed')",
+  "also_old": [
+   "0.17 yd uncited config comment (PART1_DETAIL.md:627)",
+   "0.25 yd KALMAN_R_POS design constant (PART1_DETAIL.md:627)"
+  ]
+ },
+ {
+  "id": "SF2",
+  "quantity": "serving p99 latency",
+  "status": "confirmed",
+  "old": "68.9 ms",
+  "current": "76-102 ms (76.2-101.7)",
+  "old_sites": [
+   "README.md:327"
+  ],
+  "current_sites": [
+   "README.md:324",
+   "README.md:329",
+   "README.md:537"
+  ],
+  "marker": "'An earlier single run reported ... Corrected:' in the same paragraph"
+ },
+ {
+  "id": "SF3",
+  "quantity": "value of destination info (toward-ball vs constant_velocity gap)",
+  "status": "confirmed",
+  "old": "~0.9 yd / 0.887 yd (week 1, 3s, 4.6% coverage)",
+  "current": "0.31 yd @1.9s primary, 1.51 yd @3s (full 18 weeks)",
+  "old_sites": [
+   "CONTEXT.md:338 (UNMARKED locally)",
+   "PART1_DETAIL.md:251 (UNMARKED locally)",
+   "PART1_DETAIL.md:206",
+   "PART1_DETAIL.md:486",
+   "PART1_DETAIL.md:493"
+  ],
+  "current_sites": [
+   "PART1_DETAIL.md:482-485"
+  ],
+  "marker": "italic 'old headline (week 1, 3s)' row; parenthetical at PART1_DETAIL.md:204-210; CONTEXT.md:413 section-level notice"
+ },
+ {
+  "id": "SF4",
+  "quantity": "per-role mean error table",
+  "status": "confirmed (scoped, not superseded)",
+  "old": "week-1-only table",
+  "current": "same table; full-18-week values move <0.3 yd, ordering unchanged (no full-data numbers given)",
+  "old_sites": [
+   "PART1_DETAIL.md:213-221",
+   "CONTEXT.md:192-201 (no local marker)"
+  ],
+  "current_sites": [
+   "PART1_DETAIL.md:224-226"
+  ],
+  "marker": "PART1: inline note directly under table. CONTEXT: scope set 17 lines earlier at CONTEXT.md:175 ('on week 1 only') and at CONTEXT.md:413"
+ },
+ {
+  "id": "SF5",
+  "quantity": "which baselines invert the role split",
+  "status": "confirmed",
+  "old": "every baseline except constant_acceleration and damped_velocity",
+  "current": "...and constant_position as well",
+  "old_sites": [
+   "CONTEXT.md:220-223"
+  ],
+  "current_sites": [
+   "CONTEXT.md:223"
+  ],
+  "marker": "[corrected 2026-11-03: ...] inserted mid-sentence; only dated correction marker in corpus"
+ },
+ {
+  "id": "SF6",
+  "quantity": "lead noise-crossing sigma",
+  "status": "confirmed",
+  "old": "0.029 (week 1, 3s)",
+  "current": "0.103 (floor) -> 0.147 (quadrature); headline now 0.075 (tbl_kalman_speed vs constant_velocity)",
+  "old_sites": [
+   "CONTEXT.md:376",
+   "PART1_DETAIL.md:452",
+   "PART1_DETAIL.md:454"
+  ],
+  "current_sites": [
+   "PART1_DETAIL.md:449-454",
+   "CONTEXT.md:500-501",
+   "README.md:206"
+  ],
+  "marker": "italic 'old (week 1, 3s)' row; CONTEXT.md:376 only via section-level notice at :413"
+ },
+ {
+  "id": "SF7",
+  "quantity": "3s track coverage",
+  "status": "confirmed",
+  "old": "4.6% (24/526, week 1)",
+  "current": "3.5% (394/11,254, full)",
+  "old_sites": [
+   "CONTEXT.md:160",
+   "CONTEXT.md:415",
+   "PART1_DETAIL.md:758"
+  ],
+  "current_sites": [
+   "CONTEXT.md:159",
+   "PART1_DETAIL.md:757"
+  ],
+  "marker": "both values co-located and labelled"
+ },
+ {
+  "id": "SF8",
+  "quantity": "IMM vs kalman_ca margin at sigma=5",
+  "status": "confirmed",
+  "old": "51% (39.37 vs 59.57, week 1, 3s)",
+  "current": "58% (25.68 vs 40.62, primary horizon)",
+  "old_sites": [
+   "PART1_DETAIL.md:508"
+  ],
+  "current_sites": [
+   "PART1_DETAIL.md:506-507"
+  ],
+  "marker": "co-located, 'original week-1, 3s estimate'"
+ },
+ {
+  "id": "SF9",
+  "quantity": "Tier 2A bottom line for K5",
+  "status": "confirmed (qualitative)",
+  "old": "none of the four signals is deployment-ready",
+  "current": "Signal 1 (input PSI) works for K5; claim holds for K3 only",
+  "old_sites": [
+   "TIER2A_RESULTS.md:17"
+  ],
+  "current_sites": [
+   "TIER2A_RESULTS.md:6-18"
+  ],
+  "marker": "heading 'Corrected bottom line (supersedes the first-pass report)'"
+ },
+ {
+  "id": "X1",
+  "quantity": "0.23 lag figure",
+  "status": "NOT a two-value case",
+  "old": "0.23 (no unit, no stated meaning)",
+  "current": "none linked",
+  "old_sites": [
+   "README.md:580"
+  ],
+  "current_sites": [],
+  "marker": "README.md:580 names 'the 0.23 lag figure' as corrected but states neither what it measured nor its replacement; the corpus never links it to 0.77 yd (README.md:205, PART1_DETAIL.md:421). Usable only as a hallucination probe."
+ },
+ {
+  "id": "SF10",
+  "quantity": "Tier 2 status (streaming, quantisation, latency, AWS)",
+  "status": "confirmed (added 2026-11-05, Roy)",
+  "old": "not started",
+  "current": "Tier 2B / Part 3 completed: SageMaker endpoint measured in us-west-2 and us-east-1",
+  "old_sites": [
+   "CONTEXT.md:94"
+  ],
+  "current_sites": [
+   "README.md:277-372 (Part 3 — serving latency and cost)"
+  ],
+  "marker": "NONE. Status cell in an undated table, with no correction or date marker; the only unmarked status-type case",
+  "eval_questions": [
+   "B01",
+   "B07",
+   "B08"
+  ]
+ },
+ {
+  "id": "SF11",
+  "quantity": "Tier 1 learned-model status (Task K)",
+  "status": "confirmed (2026-11-05, Roy)",
+  "old": "Learned-model part (Task K) not started",
+  "current": "K1-K5 trained and evaluated (README Part 2, Headline results)",
+  "old_sites": [
+   "CONTEXT.md:93"
+  ],
+  "current_sites": [
+   "README.md:234-276 (Part 2 — the learned models)"
+  ],
+  "marker": "NONE. Same undated tier table as SF10"
+ }
+]

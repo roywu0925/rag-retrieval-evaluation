@@ -1,0 +1,14 @@
+[REPRODUCING.md > Reproducing]
+                                                                 #                                   (measured: ~28 min)
+PYTHONPATH=. python scripts/run_tier1_taskm.py                 # degradation sweep, K1-K3 + baselines, CV folds only
+PYTHONPATH=. python scripts/run_tier1_taskk4_degrade.py        # degradation sweep, K4
+PYTHONPATH=. python scripts/run_tier1_k5_degrade.py            # degradation sweep, K5
+
+# Test-split evaluation — run ONCE. Everything above must be finished and
+# the variant list frozen before this line runs; it is not a selection step.
+PYTHONPATH=. python scripts/run_tier1_test_pass.py             # train final K1-K5 on all 231 train+val games,
+                                                                 # score every variant + baseline on the untouched
+                                                                 # 41-game test split, one pass    (measured: ~20 min)
+PYTHONPATH=. python scripts/run_tier1_test_degrade.py          # the same degradation sweep, repeated on test
+PYTHONPATH=. python scripts/plot_headline_crossing.py           # regenerates the Part 2 figure from
+                                                                 # tier1_test_degrade_summary.csv, written above

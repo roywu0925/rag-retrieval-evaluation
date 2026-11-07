@@ -1,0 +1,34 @@
+TOP-UP pool: 15 sections x 1
+  1  README.md          (preamble)   (main pool already has 1)
+  1  README.md          The question   (main pool already has 0)
+  1  README.md          Headline results > Clean data, held-out test split (41 games   (main pool already has 1)
+  1  README.md          Headline results > Under degradation — the result that matte   (main pool already has 1)
+  1  README.md          Part 2 — the learned models   (main pool already has 1)
+  1  README.md          Part 3 — serving latency and cost   (main pool already has 1)
+  1  README.md          Methodology   (main pool already has 0)
+  1  PART1_DETAIL.md    Baselines   (main pool already has 1)
+  1  PART1_DETAIL.md    Results   (main pool already has 1)
+  1  PART1_DETAIL.md    Results > Tier 0b: does state estimation beat naive extrapol   (main pool already has 1)
+  1  PART1_DETAIL.md    Results > Tier 1: degradation sweep   (main pool already has 1)
+  1  CONTEXT.md         Tiers, effort, and where to stop > Why 0a and 0b are split   (main pool already has 0)
+  1  CONTEXT.md         Decisions already taken   (main pool already has 1)
+  1  CONTEXT.md         Current state > Tier 0b (Kalman / IMM), run 2026-09-22   (main pool already has 1)
+  1  REPRODUCING.md     Reproducing   (main pool already has 1)
+eligible 15  skipped(<50 tok) 0: 
+  1   5078 tok  PART1_DETAIL.md    Results > Tier 1: degradation sweep
+  1   1932 tok  CONTEXT.md         Current state > Tier 0b (Kalman / IMM), run 2026-09-22
+  1   1508 tok  REPRODUCING.md     Reproducing
+  1   1380 tok  README.md          Part 3 — serving latency and cost
+  1   1380 tok  README.md          Methodology
+  1   1276 tok  PART1_DETAIL.md    Results > Tier 0b: does state estimation beat naive extrapolation?
+  1    951 tok  PART1_DETAIL.md    Results
+  1    623 tok  README.md          Headline results > Clean data, held-out test split (41 games never tou
+  1    598 tok  README.md          (preamble)
+  1    568 tok  README.md          Part 2 — the learned models
+  1    327 tok  CONTEXT.md         Decisions already taken
+  1    250 tok  README.md          Headline results > Under degradation — the result that matters
+  1    232 tok  PART1_DETAIL.md    Baselines
+  1    212 tok  README.md          The question
+  1     89 tok  CONTEXT.md         Tiers, effort, and where to stop > Why 0a and 0b are split
+allocated 15; to PART1 'Results' + CONTEXT 'Current state' (53% of tokens): 4
+kept 15  dropped 0  tokens in 63717 out 4052  cost $0.2771

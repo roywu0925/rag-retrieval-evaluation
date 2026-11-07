@@ -1,0 +1,524 @@
+[
+ {
+  "worksheet": 1,
+  "item": 1,
+  "audit_id": 15,
+  "fact": "SF7",
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "exclude_context",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 2,
+  "audit_id": 30,
+  "fact": "SF7",
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "recency_git",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 3,
+  "audit_id": 26,
+  "fact": "SF10",
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "baseline",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 4,
+  "audit_id": 14,
+  "fact": "SF4",
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "exclude_context",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 5,
+  "audit_id": 22,
+  "fact": "SF10",
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "corrections_doc",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 6,
+  "audit_id": 9,
+  "fact": "SF10",
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "corrections_doc",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 7,
+  "audit_id": 18,
+  "fact": "SF7",
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "recency_git",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 8,
+  "audit_id": 8,
+  "fact": "SF7",
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "corrections_doc",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 9,
+  "audit_id": 33,
+  "fact": "SF4",
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "corrections_doc",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 10,
+  "audit_id": 0,
+  "fact": "SF3",
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "baseline",
+  "rule_class": "OTHER"
+ },
+ {
+  "worksheet": 1,
+  "item": 11,
+  "audit_id": 3,
+  "fact": "SF11",
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "baseline",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 12,
+  "audit_id": 1,
+  "fact": "SF7",
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "baseline",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 13,
+  "audit_id": 5,
+  "fact": "SF10",
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "exclude_context",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 14,
+  "audit_id": 10,
+  "fact": "SF11",
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "corrections_doc",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 15,
+  "audit_id": 23,
+  "fact": "SF11",
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "corrections_doc",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 16,
+  "audit_id": 17,
+  "fact": "SF3",
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "recency_git",
+  "rule_class": "OTHER"
+ },
+ {
+  "worksheet": 1,
+  "item": 17,
+  "audit_id": 25,
+  "fact": "SF7",
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "baseline",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 18,
+  "audit_id": 12,
+  "fact": "SF10",
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "baseline",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 19,
+  "audit_id": 28,
+  "fact": "SF7",
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "exclude_context",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 20,
+  "audit_id": 19,
+  "fact": "SF10",
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "recency_git",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 21,
+  "audit_id": 32,
+  "fact": "SF11",
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "recency_git",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 22,
+  "audit_id": 13,
+  "fact": "SF11",
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "baseline",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 23,
+  "audit_id": 27,
+  "fact": "SF11",
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "baseline",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 24,
+  "audit_id": 29,
+  "fact": "SF4",
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "recency_git",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 25,
+  "audit_id": 7,
+  "fact": "SF3",
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "corrections_doc",
+  "rule_class": "OTHER"
+ },
+ {
+  "worksheet": 1,
+  "item": 26,
+  "audit_id": 34,
+  "fact": "SF7",
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "corrections_doc",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 27,
+  "audit_id": 4,
+  "fact": "SF7",
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "exclude_context",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 28,
+  "audit_id": 20,
+  "fact": "SF11",
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "recency_git",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 29,
+  "audit_id": 6,
+  "fact": "SF7",
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "recency_git",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 30,
+  "audit_id": 31,
+  "fact": "SF10",
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "recency_git",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 31,
+  "audit_id": 11,
+  "fact": "SF7",
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "baseline",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 32,
+  "audit_id": 21,
+  "fact": "SF7",
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "corrections_doc",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 33,
+  "audit_id": 2,
+  "fact": "SF10",
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "baseline",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 34,
+  "audit_id": 35,
+  "fact": "SF10",
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "corrections_doc",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 35,
+  "audit_id": 16,
+  "fact": "SF8",
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "exclude_context",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 1,
+  "item": 36,
+  "audit_id": 24,
+  "fact": "SF4",
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "baseline",
+  "rule_class": "MIXED"
+ },
+ {
+  "worksheet": 2,
+  "item": 1,
+  "audit_id": 51,
+  "fact": "SF9",
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "baseline",
+  "rule_class": "CURRENT"
+ },
+ {
+  "worksheet": 2,
+  "item": 2,
+  "audit_id": 55,
+  "fact": "SF1",
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "corrections_doc",
+  "rule_class": "CURRENT_FLAGGED"
+ },
+ {
+  "worksheet": 2,
+  "item": 3,
+  "audit_id": 46,
+  "fact": "SF5",
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "recency_git",
+  "rule_class": "CURRENT"
+ },
+ {
+  "worksheet": 2,
+  "item": 4,
+  "audit_id": 48,
+  "fact": "X1",
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "recency_git",
+  "rule_class": "CORRECT"
+ },
+ {
+  "worksheet": 2,
+  "item": 5,
+  "audit_id": 42,
+  "fact": "SF1",
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "corrections_doc",
+  "rule_class": "CURRENT"
+ },
+ {
+  "worksheet": 2,
+  "item": 6,
+  "audit_id": 38,
+  "fact": "SF9",
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "baseline",
+  "rule_class": "CURRENT"
+ },
+ {
+  "worksheet": 2,
+  "item": 7,
+  "audit_id": 39,
+  "fact": "SF11",
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "exclude_context",
+  "rule_class": "CURRENT"
+ },
+ {
+  "worksheet": 2,
+  "item": 8,
+  "audit_id": 43,
+  "fact": "X1",
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "baseline",
+  "rule_class": "CORRECT"
+ },
+ {
+  "worksheet": 2,
+  "item": 9,
+  "audit_id": 49,
+  "fact": "SF3",
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "corrections_doc",
+  "rule_class": "PROPAGATED"
+ },
+ {
+  "worksheet": 2,
+  "item": 10,
+  "audit_id": 52,
+  "fact": "SF10",
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "exclude_context",
+  "rule_class": "CURRENT"
+ },
+ {
+  "worksheet": 2,
+  "item": 11,
+  "audit_id": 37,
+  "fact": "SF5",
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "baseline",
+  "rule_class": "CURRENT"
+ },
+ {
+  "worksheet": 2,
+  "item": 12,
+  "audit_id": 41,
+  "fact": "X1",
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "recency_git",
+  "rule_class": "CORRECT"
+ },
+ {
+  "worksheet": 2,
+  "item": 13,
+  "audit_id": 50,
+  "fact": "SF3",
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "baseline",
+  "rule_class": "PROPAGATED"
+ },
+ {
+  "worksheet": 2,
+  "item": 14,
+  "audit_id": 36,
+  "fact": "SF2",
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "baseline",
+  "rule_class": "CURRENT"
+ },
+ {
+  "worksheet": 2,
+  "item": 15,
+  "audit_id": 57,
+  "fact": "SF6",
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "corrections_doc",
+  "rule_class": "CURRENT"
+ },
+ {
+  "worksheet": 2,
+  "item": 16,
+  "audit_id": 45,
+  "fact": "SF2",
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "recency_git",
+  "rule_class": "CURRENT_FLAGGED"
+ },
+ {
+  "worksheet": 2,
+  "item": 17,
+  "audit_id": 54,
+  "fact": "X1",
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "recency_git",
+  "rule_class": "CORRECT"
+ },
+ {
+  "worksheet": 2,
+  "item": 18,
+  "audit_id": 44,
+  "fact": "SF5",
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "exclude_context",
+  "rule_class": "CURRENT"
+ },
+ {
+  "worksheet": 2,
+  "item": 19,
+  "audit_id": 56,
+  "fact": "SF3",
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "corrections_doc",
+  "rule_class": "PROPAGATED"
+ },
+ {
+  "worksheet": 2,
+  "item": 20,
+  "audit_id": 40,
+  "fact": "SF8",
+  "arm": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "condition": "recency_git",
+  "rule_class": "CURRENT"
+ },
+ {
+  "worksheet": 2,
+  "item": 21,
+  "audit_id": 53,
+  "fact": "SF11",
+  "arm": "us.anthropic.claude-opus-4-6-v1",
+  "condition": "exclude_context",
+  "rule_class": "CURRENT"
+ },
+ {
+  "worksheet": 2,
+  "item": 22,
+  "audit_id": 47,
+  "fact": "SF8",
+  "arm": "us.anthropic.claude-sonnet-4-6",
+  "condition": "recency_git",
+  "rule_class": "CURRENT"
+ }
+]

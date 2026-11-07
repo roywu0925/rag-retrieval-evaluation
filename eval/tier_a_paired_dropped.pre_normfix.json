@@ -1,0 +1,56 @@
+[
+ {
+  "pair_of": "B07",
+  "variant": "MC",
+  "question": "在對 SageMaker 即時端點進行延遲分解時，CloudWatch 的哪兩個指標分別用來衡量容器處理時間與 SageMaker 路由時間？",
+  "reason": "generator evidence quote not verbatim in section"
+ },
+ {
+  "pair_of": "B07",
+  "variant": "ME",
+  "question": "When decomposing round-trip latency on a SageMaker real-time endpoint, which two CloudWatch metrics are used to measure the container processing time and the SageMaker routing time respectively?",
+  "reason": "generator evidence quote not verbatim in section"
+ },
+ {
+  "pair_of": "B09",
+  "variant": "MC",
+  "question": "在乾淨資料（無雜訊）的條件下，K3 與 K5 哪個模型表現更好？在加入位置雜訊後，兩者的領先關係在什麼標準差左右發生交叉？",
+  "reason": "generator evidence quote not verbatim in section"
+ },
+ {
+  "pair_of": "B09",
+  "variant": "ME",
+  "question": "Among the five learned model variants (K1–K5), which variant achieves the best performance on clean data, and up to approximately what noise level (sigma) does K5 lead the physics baselines before they catch up?",
+  "reason": "generator evidence quote not verbatim in section"
+ },
+ {
+  "pair_of": "B11",
+  "variant": "MC",
+  "question": "在足球球員軌跡預測專案中，K1、K2、K3、K4、K5 這五個模型變體各自採用什麼預測方式？其中哪些學習的是與物理基準的殘差，哪些是直接預測，而 K4 與 K5 各自與 K3 相比改變了什麼？",
+  "reason": "generator evidence quote not verbatim in section"
+ },
+ {
+  "pair_of": "B11",
+  "variant": "ME",
+  "question": "In a player-tracking prediction project with five GRU model variants (K1–K5), which variants learn a residual on top of a physics baseline, which predict directly without any physics base, and what single change does each of K4 and K5 make relative to K3?",
+  "reason": "generator evidence quote not verbatim in section"
+ },
+ {
+  "pair_of": "B14",
+  "variant": "MC",
+  "question": "根據卡爾曼濾波器與物理模型的交叉點測試結果，`tbl_kalman_speed` 在噪聲標準差 σ = 2.0 碼時的表現如何，以及它在 σ = 0.8 到 2.0 的範圍內與其他基準模型相比如何？",
+  "reason": "verifier: not answerable alone (The section only provides `tbl_kalman_speed` results for σ = 0.0, 0.2, 1.0, and 5.0. There is no data point for σ = 2.0,)"
+ },
+ {
+  "pair_of": "B14",
+  "variant": "ME",
+  "question": "In the degradation results comparing K3, K5, and tbl_kalman_speed, at σ = 2.0 yards, has the noise level surpassed the measured K5/physics crossing point, and which baseline model performs best pointwise across the σ range of 0.8 to 2.0?",
+  "reason": "verifier: not answerable alone (Two pieces of information are missing: (1) There is no data row for σ = 2.0 in the table (only σ = 0.0, 0.2, 1.0, and 5.)"
+ },
+ {
+  "pair_of": "B15",
+  "variant": "MC",
+  "question": "在卡爾曼濾波器中，Q 和 R 參數透過卡爾曼增益如何平衡濾波器的預測與測量之間的關係？",
+  "reason": "verifier: not answerable alone (The section touches on how Q (process noise, via sigma_a) affects the Kalman gain and the balance between prediction and)"
+ }
+]

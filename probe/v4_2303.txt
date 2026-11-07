@@ -1,0 +1,32 @@
+[REPRODUCING.md > Reproducing]
+                                                                 #                                   (measured: ~28 min)
+PYTHONPATH=. python scripts/run_tier1_taskm.py                 # degradation sweep, K1-K3 + baselines, CV folds only
+PYTHONPATH=. python scripts/run_tier1_taskk4_degrade.py        # degradation sweep, K4
+PYTHONPATH=. python scripts/run_tier1_k5_degrade.py            # degradation sweep, K5
+
+# Test-split evaluation — run ONCE. Everything above must be finished and
+# the variant list frozen before this line runs; it is not a selection step.
+PYTHONPATH=. python scripts/run_tier1_test_pass.py             # train final K1-K5 on all 231 train+val games,
+                                                                 # score every variant + baseline on the untouched
+                                                                 # 41-game test split, one pass    (measured: ~20 min)
+PYTHONPATH=. python scripts/run_tier1_test_degrade.py          # the same degradation sweep, repeated on test
+PYTHONPATH=. python scripts/plot_headline_crossing.py           # regenerates the Part 2 figure from
+                                                                 # tier1_test_degrade_summary.csv, written above
+
+# Part 3 — local half of the serving-latency measurement (CPU inference
+# floor only; no AWS access needed for this one script)
+PYTHONPATH=. python scripts/run_tier2b_phase1_local.py         # K3/K5/tbl_kalman_speed local inference timing
+```
+
+The rest of Part 3 (the round-trip, region, batch-size, throughput, and
+cost numbers) was measured against a live SageMaker endpoint and is not
+clone-and-run — there is no script that reproduces the latency table
+itself, only the local floor above that it's compared against.
+
+Runtimes marked "measured" are wall-clock times observed on this machine
+(Apple Silicon, CPU only) during development; everything else scales with
+the same per-fold/per-sigma-combo cost and wasn't separately re-timed, so
+treat unmarked lines as the same order of magnitude, not as measured facts.
+*One K4 fold's wall-clock printed as ~7,900s during a run on this machine —
+almost certainly a system sleep/contention artifact, not real compute (its
+epoch count and result were normal); the ~10 min figure excludes that

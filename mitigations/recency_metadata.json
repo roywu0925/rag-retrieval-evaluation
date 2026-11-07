@@ -1,0 +1,41 @@
+{
+ "purpose": "Document-level recency metadata for the 'recency' stale-fact condition. Attached to each excerpt label in the prompt; retrieval is unchanged.",
+ "note": "One condition is run: recency_git. recency_content is documented but not run. Two conditions (Roy, 2026-11-06). Attached to excerpt labels only; retrieval unchanged. CORRECTIONS.md never receives a date (corrections_doc and recency are separate conditions, never combined).",
+ "recency_git": {
+  "derivation": "git log -1 --format=%cI 9bfc7b1 -- <file> in ~/Downloads/NFL (the frozen snapshot commit). This is the date an automated pipeline would get.",
+  "last_updated": {
+   "README.md": "2026-11-03T19:16:27-08:00",
+   "PART1_DETAIL.md": "2026-11-03T19:16:27-08:00",
+   "CONTEXT.md": "2026-11-03T19:16:27-08:00",
+   "REPRODUCING.md": "2026-11-03T16:46:29-08:00",
+   "TIER2A_RESULTS.md": "2026-11-02T22:34:48-08:00"
+  },
+  "known_property_before_running": "README, PART1_DETAIL and CONTEXT share ONE commit timestamp, because the repo was published in two days. The instruction therefore cannot separate CONTEXT.md (most old sites) from README/PART1_DETAIL, and it ranks TIER2A_RESULTS.md, which holds SF9's corrected bottom line, as the OLDEST file. This is a property of VCS-derived recency, stated before any answer exists, not a defect to fix after.",
+  "values": {
+   "README.md": "2026-11-03T19:16:27-08:00",
+   "PART1_DETAIL.md": "2026-11-03T19:16:27-08:00",
+   "CONTEXT.md": "2026-11-03T19:16:27-08:00",
+   "REPRODUCING.md": "2026-11-03T16:46:29-08:00",
+   "TIER2A_RESULTS.md": "2026-11-02T22:34:48-08:00"
+  }
+ },
+ "recency_content": {
+  "derivation": "Mechanical (Roy): per-file content date = the newest `git blame --line-porcelain` committer-time at 9bfc7b1 among the lines in that file that hold a CURRENT value in eval/stale_facts.json (current_sites). A file with no current-value line (REPRODUCING.md) has no defined content date and gets its recency_git date. That fallback is a rule, not a judgement.",
+  "last_updated": {
+   "README.md": "2026-11-03T15:37:00-08:00 (from SF11 lines)",
+   "PART1_DETAIL.md": "2026-11-03T19:16:27-08:00 (from SF4 lines)",
+   "CONTEXT.md": "2026-11-03T19:16:27-08:00 (from SF5 lines)",
+   "TIER2A_RESULTS.md": "2026-11-02T22:34:48-08:00 (from SF9 lines)",
+   "REPRODUCING.md": "2026-11-03T16:46:29-08:00 (fallback: recency_git)"
+  },
+  "known_property_before_running": "DOES NOT FULFIL ITS PURPOSE. Blame dates are also publication dates: the repo's history starts with the 2026-11-02 import, so the real content dates (runs of 2026-09/10) are not in git. CONTEXT.md ties PART1_DETAIL.md for NEWEST, README.md is older than both, and TIER2A_RESULTS.md is still oldest. These dates carry no more information than recency_git, and rank the main stale-value file first. Raised with Roy before the freeze.",
+  "values": {
+   "README.md": "2026-11-03T15:37:00-08:00",
+   "PART1_DETAIL.md": "2026-11-03T19:16:27-08:00",
+   "CONTEXT.md": "2026-11-03T19:16:27-08:00",
+   "TIER2A_RESULTS.md": "2026-11-02T22:34:48-08:00",
+   "REPRODUCING.md": "2026-11-03T16:46:29-08:00"
+  },
+  "status": "NOT RUN (Roy, 2026-11-06). The derivation was attempted and gives no information beyond recency_git; kept here as the record of the failed attempt."
+ }
+}

@@ -1,0 +1,105 @@
+[PART1_DETAIL.md > Results > Tier 1: degradation sweep]
+
+Tier 0b's result holds at exactly one sensor quality: NGS's own. This
+tier corrupts the input positions with controlled Gaussian noise
+(`degrade.py`, `scripts/run_tier1_sweep.py`, `scripts/run_tier1_crossover.py`,
+`scripts/run_tier1_twoaxis.py`) and re-runs every predictor unchanged, to find
+out whether — and where — that result survives. Every number below is
+from the full 18-week dataset (2,729 plays, 11,254 player-tracks, 272
+games) unless marked otherwise, and every number carries its coverage —
+see the methodology note below on why that qualifier is not optional.
+
+**Which `R` convention, and why it matters before any headline number can
+be stated.** Every Kalman-family predictor's measurement noise `R` is
+built from a position-noise scale `σ_pos`. Two ways to build it from the
+injected sweep noise `σ`: `floor` (`σ_pos = max(σ, 0.05)`, used through
+the rest of this section's detailed sigma-by-sigma tables) and
+`quadrature` (`σ_pos = sqrt(KALMAN_R_POS + σ²)`). **This document adopts
+`quadrature` as primary**, for three reasons, in this order:
+
+1. **It's the more conservative one.** In `derived` mode, `σ` is injected
+   on top of positions from the *published* stream, which this project's
+   own later measurement (see Methodology) found to be quantized to 0.01 yd
+   with no detectable noise above that — not the `σ≈0.25` this project had
+   assumed as a design constant (`KALMAN_R_POS`) before that measurement
+   existed. Telling the filter `R = 0.05²` at `σ=0` understates even the
+   assumed figure; `quadrature` was the more conservative choice given what
+   was known at the time it was adopted, not a claim that 0.25 was ever a
+   confirmed real noise figure.
+2. **Continuity.** `quadrature` makes the sweep's `σ=0` point reproduce
+   the un-degraded Tier 0b filter *exactly* — `KALMAN_R_POS + 0² =
+   KALMAN_R_POS`. It reproduces the standalone Tier 0b `tbl_kalman_speed`
+   clean number, 5.245 yd, to three decimals. A degradation sweep whose
+   zero point doesn't reproduce the experiment it's extending is a
+   different experiment; that exact match is what continuity means, not
+   a coincidence.
+3. **It's the less flattering choice, which is itself evidence.**
+   `quadrature` makes every Kalman-family clean-data number *worse*
+   (`tbl_kalman_speed`: 4.77 → 5.25 yd) and every crossing *later*
+   (`kalman`: 0.105 → 0.147; `tbl_kalman_speed`: 0.028 → 0.075) — it was
+   not selected because it produced a better-looking result.
+
+`floor` is kept throughout the rest of this section as a stated
+sensitivity analysis, not deleted — every detailed σ-by-σ table below
+still uses it, and is labelled as such.
+
+**The headline: clean-data rankings are not just incomplete, they are
+actively misleading.** At the honest primary horizon (1.9s, 53%
+coverage), under the coupled degradation scenario (`σ_ball = σ_player`,
+i.e. landing-point error scaling with player-position error), `σ=0`
+column under `quadrature`:
+
+| predictor | σ=0 (clean) | σ=5 (coupled) |
+|---|---|---|
+| `velocity_turning_to_ball` | **4.26** (1st) | 20.00 (**last**) |
+| `toward_ball_land` | 4.54 | 13.04 |
+| `tbl_kalman_pos` | 4.71 | 13.06 |
+| `tbl_kalman_speed` | 5.25 (4th) | **9.19** (**1st**) |
+| `tbl_kalman_both` | 5.45 | 11.43 |
+
+*(The `σ=5` column is from the two-axis grid, run under `floor` and not
+re-run under `quadrature` — but the two conventions converge at high σ:
+`sqrt(0.25² + 5²) = 5.006` vs. `max(5, 0.05) = 5.000`, a 0.1% difference,
+so this column is convention-independent for practical purposes. Only
+the low-σ region, where this section's convention choice actually
+matters, needed re-running.)*
+
+The clean-data winner becomes the worst method under realistic sensing,
+and the clean-data 4th-place method becomes the best — and under the
+physically-correct convention, the gap by which `tbl_kalman_speed`
+starts behind is *larger* (0.68 yd, not 0.21) than first reported, which
+only sharpens the inversion. Mechanism: `velocity_turning_to_ball`
+blends in `constant_velocity`'s heading, and heading (derived from
+position differencing) is the single most noise-fragile quantity in
+this entire study — it's what wins on clean data and what collapses
+fastest once the sensor degrades.
+
+**Finding 1 — the crossover is a curve, not a constant, and the
+headline number is the hybrid's, not the raw filter's.** `tbl_kalman_speed`
+is the method this project actually recommends, so its crossing against
+`constant_velocity` is the one to lead with, not plain `kalman`'s:
+
+| | `tbl_kalman_speed` crossing | `kalman` crossing |
+|---|---|---|
+| `quadrature` (primary) | **0.075 yd** | 0.147 yd |
+| `floor` (sensitivity) | 0.028 yd | 0.105 yd |
+
+`tbl_kalman_speed` crosses at 0.075 yd under `quadrature`, 0.028 yd under
+`floor`; plain `kalman` crosses later, at 0.147 and 0.105 respectively.
+These stand as measurements. What they mean relative to the real sensor's
+noise is not stated here — this project later measured the published
+position stream directly (see Methodology) and found no basis for comparing
+a crossing sigma to "NGS's accuracy": there is no confirmed published
+figure, and the published stream itself carries no detectable noise above
+its 0.01 yd quantization step, which is not the same quantity as whatever
+noise the raw sensor has. Earlier drafts of this document compared these
+crossings to an assumed "NGS published range of 0.15–0.3 yd"; that figure
+was never sourced and has been removed rather than replaced.
+
+**A second crossing, same hybrid, different opponent.** The 0.075 figure
+above is `tbl_kalman_speed` against `constant_velocity`. A different,
+cleaner comparison isolates the cost of smoothing specifically:
+`tbl_kalman_speed` vs. `toward_ball_land` are identical in direction
+source (both point at the ball's landing spot) and differ only in where
+speed comes from — a Kalman posterior vs. NGS's own reported speed. On
+clean, held-out test data that costs **0.77 yd**. Run on the same fine

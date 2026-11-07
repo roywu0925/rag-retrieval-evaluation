@@ -1,0 +1,1 @@
+{"model": "titan-v2", "config": {"chunk_size": 512, "overlap_pct": 0.1}, "tag": "corrections", "n_chunks": 2, "dim": 1024, "source_sha256": "6c45f92a903a05a3369bde5f1e3152e627cfe59e5f04d09a7a93fba0d879697b"}

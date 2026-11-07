@@ -1,0 +1,47 @@
+eligible 44  skipped(<50 tok) 2: TIER2A_RESULTS.md::(preamble), REPRODUCING.md::(preamble)
+  2   5078 tok  PART1_DETAIL.md    Results > Tier 1: degradation sweep
+  2   2549 tok  PART1_DETAIL.md    Results > Methodology note: the coverage guard that only guarded the p
+  2   2077 tok  PART1_DETAIL.md    Results > Methodology note: measuring the sensor's actual noise floor
+  1   1932 tok  CONTEXT.md         Current state > Tier 0b (Kalman / IMM), run 2026-09-22
+  1   1750 tok  CONTEXT.md         Current state > Tier 1 Part 1 complete: hybrid, second noise axis, cov
+  1   1532 tok  REPRODUCING.md     Repository layout
+  1   1508 tok  REPRODUCING.md     Reproducing
+  1   1380 tok  README.md          Part 3 — serving latency and cost
+  1   1380 tok  README.md          Methodology
+  1   1276 tok  PART1_DETAIL.md    Results > Tier 0b: does state estimation beat naive extrapolation?
+  1   1046 tok  CONTEXT.md         Current state
+  1   1010 tok  PART1_DETAIL.md    Running it
+  1    951 tok  PART1_DETAIL.md    Results
+  1    689 tok  CONTEXT.md         Current state > Tier 1 Part 1 (degradation sweep), run 2026-09-23/24
+  1    644 tok  README.md          Part 1 — the physics study
+  1    623 tok  README.md          Headline results > Clean data, held-out test split (41 games never tou
+  1    598 tok  README.md          (preamble)
+  1    568 tok  README.md          Part 2 — the learned models
+  1    546 tok  README.md          Notes on process
+  1    509 tok  README.md          Limitations
+  1    487 tok  CONTEXT.md         Current state > Known soft spots in the current code
+  1    460 tok  README.md          Why the learned model breaks
+  1    396 tok  CONTEXT.md         Things that were considered and rejected
+  1    348 tok  TIER2A_RESULTS.md  K3 reframed — not four monitoring failures, one model problem
+  1    327 tok  CONTEXT.md         Decisions already taken
+  1    287 tok  TIER2A_RESULTS.md  Corrected bottom line (supersedes the first-pass report)
+  1    286 tok  CONTEXT.md         Tiers, effort, and where to stop
+  1    259 tok  PART1_DETAIL.md    Design notes
+  1    251 tok  CONTEXT.md         Working style notes
+  1    250 tok  README.md          Headline results > Under degradation — the result that matters
+  1    240 tok  CONTEXT.md         The framing, and why it is this one
+  1    232 tok  PART1_DETAIL.md    Baselines
+  0    226 tok  PART1_DETAIL.md    Why UWB matters here
+  0    219 tok  PART1_DETAIL.md    Data
+  0    212 tok  README.md          The question
+  0    207 tok  CONTEXT.md         The framing, and why it is this one > On the UWB angle
+  0    186 tok  README.md          Repository layout
+  0    178 tok  PART1_DETAIL.md    The question
+  0    176 tok  CONTEXT.md         (preamble)
+  0    142 tok  CONTEXT.md         What this is for
+  0     92 tok  PART1_DETAIL.md    (preamble)
+  0     89 tok  PART1_DETAIL.md    Roadmap
+  0     89 tok  CONTEXT.md         Tiers, effort, and where to stop > Why 0a and 0b are split
+  0     70 tok  README.md          Reproducing
+allocated 35; to PART1 'Results' + CONTEXT 'Current state' (53% of tokens): 13
+kept 31  dropped 4  tokens in 127697 out 9942  cost $0.5854
