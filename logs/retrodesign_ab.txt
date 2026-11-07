@@ -1,0 +1,6 @@
+true gap | power | mean observed gap among significant results | exaggeration
+     5   | 0.04  |  25.6 pts | 5.1x
+    10   | 0.13  |  27.3 pts | 2.7x
+    15   | 0.27  |  29.1 pts | 1.9x
+    20   | 0.42  |  31.2 pts | 1.6x
+    30   | 0.70  |  36.6 pts | 1.2x

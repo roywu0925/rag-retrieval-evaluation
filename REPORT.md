@@ -12,12 +12,13 @@ The study set out to answer three questions. **One of them it answers. Two it ca
 says what scale would be needed.** Along the way, the design's own validation step caught **its classifier being
 wrong on the cases that drove a headline number.**
 
-1. **Measured: generated eval questions overstate retrieval quality.**
-   - On the sections Roy's own questions cover, LLM-generated questions retrieve their gold section 31 points more
-     often than his [95% CI +8, +54].
-   - On paired questions about the same facts, the gap splits roughly evenly between question style and question
-     language.
-   - These are point estimates with intervals, not a test.
+1. **Measured: generated eval questions overstate retrieval quality, by somewhere between 9 and 58 points.**
+   - On the sections Roy's own questions cover, LLM-generated questions retrieve their gold section more often than
+     his. The gap is **somewhere between +9 and +58 points** (95% CI). This study cannot tell which end is true.
+   - The point estimate (+31) is **likely larger than the true gap.** The design was pre-registered as underpowered,
+     and a significant result from an underpowered design is expected to be inflated (Type M error).
+   - A secondary, paired cut of the same human questions suggests that style and language each contribute. It is
+     not significant on its own.
 2. **Not answerable here (pre-registered questions, with the numbers that would be needed):**
    - **Which chunking/retrieval knob matters.** Retrieval sits at 88%, and every knob effect falls inside its
      confidence interval. A 5-point effect would need about 160-400 questions.
@@ -45,27 +46,50 @@ So "cannot be answered" is a prediction that held, and "the classifier failed" i
 
 Full write-up: [reports/finding_b_eval_gap.md](reports/finding_b_eval_gap.md).
 
-Recall@5 at the base configuration (512-token chunks, top-5):
+**The pre-registered comparison** (fixed 2026-11-05, before any retrieval) is generated questions on the sections
+Roy's questions cover, set (3), against Roy's questions, set (2). Recall@5 at the base configuration, with Wilson 95%
+intervals:
 
 | question set | n | recall@5 |
 |---|---|---|
-| Generated (Sonnet 4.6, English), whole corpus | 33 | 88 [76, 97] |
-| Roy's own (verbatim Chinese) | 13 | 69 [46, 92] |
-| Generated, on the sections Roy's questions cover | 27 | **100** [100, 100] |
+| (3) Generated (Sonnet 4.6, English), on the sections Roy's questions cover | 27 | 100 [88, 100] |
+| (2) Roy's own (verbatim Chinese), strict | 13 | 69 [42, 87] |
 
-On exactly the sections a human user asked about, a generated-only eval set would have scored this retriever as
-perfect, while about a third of the human questions missed.
+**Headline: the gap is somewhere between +9 and +58 points** (Newcombe 95% interval for the difference; Fisher exact
+p = 0.008). The two ends support different conclusions. +9 is a modest eval-set bias. +58 means a generated-only
+eval set would badly misjudge this retriever. This study cannot separate them.
 
-The **decomposition** comes from generating a Chinese and an English question for each of Roy's questions, on the
-same fact and section, with the generator never shown his wording. It gives three paired contrasts:
-- **Style** (Roy vs generated, both Chinese): −11 points [−44, +22], n = 9.
-- **Language** (generated Chinese vs English): −11 [−33, 0], n = 9.
-- **Combined:** −27 [−55, 0], n = 11.
+**The point estimate (+31) should not be quoted as the size of the gap.** The pre-registered power analysis said
+this design needs a true gap of about 40-47 points for 80% power. A significant result from a design that
+underpowered is expected to overstate the effect, because only samples that land large clear the threshold.
+- A retrodesign at this n (scripts/retrodesign_ab.py) assumes generated questions near ceiling, as observed.
+- Under that assumption, any true gap from 5 to 20 points produces significant estimates that **average 26-31
+  points**. An observed +31 is therefore what this design returns whether the true gap is 5 or 20.
+- This is the same selection mechanism as the optimism in the NFL project's model selection.
 
-No pair goes the other way. **Why it stays descriptive:** the power analysis, done in advance, needed a 40-47 point
-gap for a test, and about 60 human questions per side would be needed to test a 27-point one. Writing those was
-declined on purpose. At that number they would stop being questions Roy would naturally ask, which is the thing
-Tier B measures. The language component is a bias that more questions would not remove.
+Scoring Tier B's multi-section question leniently gives +23 [+4, +50]. The pre-registered secondary comparison,
+generated questions over the whole corpus against Roy's (pools that differ in coverage, so indicative only), gives
++19 [−5, +46], which is not significant.
+
+**Secondary, and not a confirmation: the paired decomposition.** For each of Roy's questions, a Chinese (MC) and an
+English (ME) question were generated on the same fact and section, with the generator never shown his wording. This
+was pre-registered as an addition to the main comparison, never as a replacement for it.
+
+| contrast (paired, recall@5) | n | difference | exact McNemar |
+|---|---|---|---|
+| Style (Roy vs generated, both Chinese) | 9 | −11 [−47, +28] | p = 1.0 |
+| Language (generated Chinese vs English) | 9 | −11 [−43, +20] | p = 1.0 |
+| Combined (Roy vs generated English) | 11 | −27 [−57, +4] | p = 0.25 |
+
+None of these is significant, and they **do not independently confirm the headline**. Roy's questions are the human
+side of both cuts: 11 of the 13 in set (2) are also the "Roy" side here. The paired cut says only that, on these 9-11
+facts, the human-vs-generated difference has no sign of being purely stylistic or purely linguistic. In 3 pairs the
+generated question hits where Roy's misses, and the reverse never happens.
+
+**Why the decomposition stays descriptive.** About 60 human questions per side would be needed to test a gap in
+this range. Writing them was declined on purpose: at that number they would stop being questions Roy would
+naturally ask, which is the thing Tier B measures. The language component is a bias that more questions would not
+remove.
 
 ## 2. Two pre-registered questions this corpus cannot answer
 
@@ -147,11 +171,15 @@ existed:
 The patterns were not retuned. The audit stands as the measurement of the classifier's error, which is what it was
 pre-registered to be.
 
-**The smaller versions of the same lesson, all found the same way, by checking an instrument's output by hand:**
-- three layout bugs in the evidence-quote matcher (blockquote markers, line wraps, table-row pipes), which falsely
-  dropped 5 generated questions;
-- an abstention detector that read only English and missed a Chinese abstention;
-- an incomplete site list that wrongly labelled one fact as unretrievable.
+**Four instrument failures in all, and no automated test caught any of them.** The classifier above had passed
+all 44 of its constructed test cases. Three of the four were found only by reading output by hand:
+1. **The stale-fact classifier**: found by the pre-registered audit (the reading the design required).
+2. **The evidence-quote matcher**, with three layout bugs (blockquote markers, line wraps, table-row pipes) that
+   falsely dropped 5 generated questions: found by reading the dropped quotes by hand.
+3. **An incomplete current-value site list for one fact (SF3)**, which wrongly marked it as unretrievable and
+   excluded it from a headline rate: found by reading the answers behind an audit disagreement.
+4. **The abstention detector**, which read only English and missed a Chinese abstention, so B06 is 9/9, not 8/9:
+   found by reading one answer while writing this report.
 
 **Methodological finding.** We avoided an LLM judge in favour of a deterministic, pre-registered string
 classifier, on the grounds that it is objective. On the cases that mattered it disagreed with a human auditor on 31

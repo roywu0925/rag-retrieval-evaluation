@@ -1,58 +1,80 @@
-# The measured result: generated questions overstate retrieval quality, and the gap splits into style and language
+# The measured result: generated questions overstate retrieval quality, by somewhere between 9 and 58 points
 
 Sources: reports/sweep_results.md, logs/sweep/base.jsonl. Scoring plan pre-registered 2026-11-05, before any retrieval.
 Power analyses: scripts/power.py, power_rank.py, power_paired.py, all written before any data existed. Everything here
 is **descriptive: point estimates with bootstrap 95% CIs, no hypothesis test.** The power analyses showed that a test
 could not detect a gap of this size (below).
 
-## The gap
+## The pre-registered comparison and its result
 
 Recall@5 at the base config (512 tokens, 8.2% measured overlap, top-5):
 
-| set | n | recall@5 | MRR@5 | median rank |
+| set | n | recall@5 [Wilson 95%] | MRR@5 | median rank |
 |---|---|---|---|---|
-| (1) Tier A main (Sonnet 4.6-generated, English, whole corpus) | 33 | 88 [76, 97] | 0.73 | 1 |
-| (2) Tier B (Roy, verbatim Chinese), strict | 13 | 69 [46, 92] | 0.52 | 2 |
-| (2) Tier B, lenient (differs only for multi-section B14) | 13 | 77 [54, 100] | 0.55 | 2 |
-| (3) Tier A on the sections Tier B covers (main + top-up) | 27 | 100 [100, 100] | 0.87 | 1 |
+| (1) Tier A main (Sonnet 4.6-generated, English, whole corpus) | 33 | 88 [73, 95] | 0.73 | 1 |
+| (2) Tier B (Roy, verbatim Chinese), strict | 13 | 69 [42, 87] | 0.52 | 2 |
+| (2) Tier B, lenient (differs only for multi-section B14) | 13 | 77 [50, 92] | 0.55 | 2 |
+| (3) Tier A on the sections Tier B covers (main + top-up) | 27 | 100 [88, 100] | 0.87 | 1 |
 
-- **Headline (pre-registered: (3) vs (2), the same sections):** generated questions retrieve their gold section
-  **31 points more often** than Roy's [CI +8, +54] (strict), or 23 points [0, +46] (lenient).
-- **Secondary, indicative only ((1) vs (2); the pools differ):** +19 [−7, +48].
+- **Pre-registered headline: (3) vs (2), the same sections.** The gap is **somewhere between +9 and +58 points**
+  (strict; Newcombe 95%; Fisher exact p = 0.008). The two ends support different conclusions, and this study cannot
+  separate them. Lenient: +23 [+4, +50], p = 0.029.
+- **Pre-registered secondary, indicative only ((1) vs (2); the pools differ in coverage):** +19 [−5, +46],
+  p = 0.20. Not significant.
 
-**On the sections Tier B covers, every generated question was retrieved, and 31% of Roy's strict-scored questions
-were not.** An eval set built only from generated questions would have reported this retriever as perfect on
-exactly the sections a human user asks about.
+**Type M: the point estimate is likely larger than the true gap.** The design was pre-registered as underpowered: 40-47
+points were needed for 80% power. A significant result from such a design is expected to be inflated, because only
+the samples that land large clear the threshold.
+- scripts/retrodesign_ab.py (output in logs/retrodesign_ab.txt) assumes generated questions near ceiling (true
+  recall 0.97, as observed).
 
-## The decomposition: style and language, on the same facts
+  | true gap | power | mean significant estimate | exaggeration |
+  |---|---|---|---|
+  | 5 | 0.04 | 26 | 5.1× |
+  | 10 | 0.13 | 27 | 2.7× |
+  | 15 | 0.27 | 29 | 1.9× |
+  | 20 | 0.42 | 31 | 1.6× |
+  | 30 | 0.70 | 37 | 1.2× |
+
+- **An observed +31 is what this design returns whether the true gap is 5 or 20 points.** Quote the interval, not
+  the +31.
+- The retrodesign was written after the result. It quantifies the inflation and changes no pre-registered number.
+
+The one robust observation: **on the sections Tier B covers, every generated question was retrieved, and 4 of Roy's
+13 were not.** A generated-only eval set would have scored this retriever as perfect on exactly the sections a human
+user asked about.
+
+## Secondary: the paired decomposition (not a confirmation)
 
 For each answerable Tier B question (R), Sonnet 4.6 wrote one question in Chinese (MC) and one in English (ME) on the
-same gold section and fact. The generator saw the fact, never Roy's wording. After the pre-registered filters, 9
-complete triads remain (11 R-ME pairs). Paired differences in recall@5, with bootstrap CIs:
+same gold section and fact. The generator saw the fact, never Roy's wording. This set was pre-registered as an
+**addition** to the comparison above, explicitly not the primary one. After the pre-registered filters, 9 complete
+triads remain (11 R-ME pairs).
 
-| contrast | holds constant | n | difference |
-|---|---|---|---|
-| R − MC: **style** (human vs generated) | language (both Chinese) | 9 | −11 [−44, +22] |
-| MC − ME: **language** (Chinese vs English) | style (both generated) | 9 | −11 [−33, 0] |
-| R − ME: combined | none | 11 | **−27 [−55, 0]** |
+| contrast (paired recall@5) | holds constant | n | hits (both / first only / second only / neither) | difference [Newcombe paired 95%] | exact McNemar |
+|---|---|---|---|---|---|
+| R − MC: style | language (both Chinese) | 9 | 6 / 1 / 2 / 0 | −11 [−47, +28] | p = 1.0 |
+| MC − ME: language | style (both generated) | 9 | 8 / 0 / 1 / 0 | −11 [−43, +20] | p = 1.0 |
+| R − ME: combined | none | 11 | 8 / 0 / 3 / 0 | −27 [−57, +4] | p = 0.25 |
 
-On the 9 complete triads, the combined gap of −22 splits **evenly: about half style, about half language.** The
-clearest single case is B01. Roy's question ranks the gold section 58th; both generated versions rank it 1st. The
-upper limits of 0 in the CIs mean that **no pair goes the other way**: no generated question missed where Roy's hit.
+**None is significant**, and the combined −27 must not be read as significant: its interval includes zero.
+- **It does not confirm the headline.** The human side is the same set of questions: 11 of the 13 Tier B questions
+  in set (2) are the R side here. Two cuts that share their human questions are the same data cut twice, not two
+  measurements.
+- **What it adds** is that on the 9 complete triads, the generated-vs-human difference splits about evenly between
+  style and language (−11 and −11). There is no sign that the difference is purely one or the other. In 3 pairs the
+  generated question hits where Roy's misses, and the reverse never happens.
+- The clearest single case is B01. Roy's question ranks the gold section 58th; both generated versions rank it 1st.
+- Within-pair rank correlations are 0.00-0.15. The pre-registered paired power analysis needed about 0.9 to reach
+  a 20-point bar, so the paired test could not have been decisive.
 
-Within-pair rank correlations are 0.00-0.15. The pre-registered paired power analysis needed about 0.9 for the
-paired design to reach a 20-point bar. This confirms, in hindsight, that the paired test could not have been decisive.
+## What would make it a test
 
-## Why it is not a test, and what would make it one
-
-- The pre-registered power analysis (Fisher, n = 28 vs 13) needed a true gap of **40-47 points** for 80% power. The
-  observed ~27-31 sits below that. Rank-based tests needed 35-44 points, and the paired design needed a within-pair
-  correlation of about 0.9. All three conclusions were written down before any retrieval ran.
-- Detecting a 27-point gap needs **about 60 human questions per side.** Roy decided not to write more (2026-11-06).
-  At that number they would no longer be questions he would naturally ask, which is what Tier B measures. The honest
-  result is the point estimates, the intervals and the decomposition above.
-- **The language part is a bias, not noise:** Tier B is Chinese and the corpus English, so more questions shrink the
-  interval but not the language component. The style component is the part a larger human set would pin down.
+- About **60 human questions per side** for a gap in this range: the pre-registered table gives 26 points at
+  n = 60. Roy decided not to write more (2026-11-06). At that number they would no longer be questions he would
+  naturally ask, which is what Tier B measures.
+- **The language part is a bias, not noise:** Tier B is Chinese and the corpus English, so more questions shrink
+  the interval but not the language component.
 
 ## Pre-registered special cases
 
