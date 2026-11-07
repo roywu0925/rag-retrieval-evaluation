@@ -6,6 +6,8 @@ frozen at commit 9bfc7b1 (33,757 tokens, 46 labelled sections).
 from Claude on Amazon Bedrock. No LLM judge was used anywhere.
 **Cost:** $4.46 of a $20 budget.
 
+**How this study was done.** This study was carried out with AI assistance for planning and implementation. The author set the scope and research questions, made the design decisions, performed the 58-answer hand audit that the stale-fact results depend on, and is responsible for the conclusions.
+
 ## What this study found, stated up front
 
 The study set out to answer three questions. **One of them it answers. Two it cannot answer at this scale, and it
@@ -165,28 +167,24 @@ pre-registration also required a blind human audit:
 **The diagnosis traces to three documented choices**, each with a stated rationale, all made before any answer
 existed:
 1. A correction marker had to appear in the same sentence as the old value.
-2. "Week 1" was removed as a marker, so that "0.029 on week 1 data" could not escape as flagged. It was proposed by
-   the assistant and approved by Roy. This one choice turned 12 correct, scoped answers ("3.5% on full data; on week
-   1 it was 4.6%") into propagations.
+2. "Week 1" was removed from the supersession markers, so that "0.029 on week 1 data" could not escape as flagged.
+   This accounts for 12 of the 31 disagreements, all on SF7: correct, scoped answers ("3.5% on full data; on week 1
+   it was 4.6%") counted as propagations.
 3. The numeric patterns did not anticipate rounding ("about 0.3 yd" for 0.31).
 
 The patterns were not retuned. The audit stands as the measurement of the classifier's error, which is what it was
 pre-registered to be.
 
 **Five instrument failures in all, and no automated test caught any of them.** The classifier above had passed
-all 44 of its constructed test cases. Four of the five were found only by reading output by hand:
-1. **The stale-fact classifier**: found by the pre-registered audit (the reading the design required).
-2. **The evidence-quote matcher**, with three layout bugs (blockquote markers, line wraps, table-row pipes) that
-   falsely dropped 5 generated questions: found by reading the dropped quotes by hand.
-3. **An incomplete current-value site list for one fact (SF3)**, which wrongly marked it as unretrievable and
-   excluded it from a headline rate: found by reading the answers behind an audit disagreement.
-4. **The abstention detector**, which read only English and missed a Chinese abstention, so B06 is 9/9, not 8/9:
-   found by reading one answer while writing this report.
-5. **The headline interval.** The instruction to "report the interval" did not say how to compute it. The
-   percentile bootstrap first used has zero variance on the 27/27 generated set, which made the headline interval
-   too narrow ([+8, +54]; the score interval is [+9, +58]) and gave the paired interval an artefactual upper limit
-   of exactly 0. **Specified by Claude (the planning instructions); caught by Claude Code during execution**, by
-   reading a [100, 100] interval and asking how it was produced.
+all 44 of its constructed test cases. Four of the five were found only by reading output by hand.
+
+| # | failure | where it originated | how it was caught |
+|---|---|---|---|
+| 1 | **Stale-fact classifier** wrong on 31 of 36 fragile answers | Specified in the plan (the same-sentence marker rule; removing "week 1" as a marker), plus introduced during implementation (numeric patterns that did not allow for rounding) | The pre-registered blind audit: the one reading the design required |
+| 2 | **Evidence-quote matcher**: three layout bugs (blockquote markers, line wraps, table-row pipes) that falsely dropped 5 generated questions | Introduced during implementation (the text normaliser) | Reading the dropped quotes by hand |
+| 3 | **Incomplete current-value site list for SF3**, which wrongly marked it unretrievable and excluded it from a headline rate | Introduced during implementation (fact labelling) | Reading the answers behind an audit disagreement |
+| 4 | **English-only abstention detector**, which missed a Chinese abstention (B06 is 9/9, not 8/9) | Introduced during implementation (a phrase list reused for Chinese answers) | Reading one answer while writing this report |
+| 5 | **Degenerate headline interval**: the percentile bootstrap has zero variance on the 27/27 set, so [+8, +54] was too narrow (score interval [+9, +58]) and the paired upper limit sat at exactly 0 | Specified in the plan ("report the interval", without a method), plus introduced during implementation (the percentile bootstrap) | Reading a [100, 100] interval and asking how it was produced |
 
 **Methodological finding.** We avoided an LLM judge in favour of a deterministic, pre-registered string
 classifier, on the grounds that it is objective. On the cases that mattered it disagreed with a human auditor on 31

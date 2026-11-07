@@ -77,17 +77,17 @@ The audit covers too few answers per cell to redo them on human labels.
 
 The disagreement traces to three specific choices, all made before any answer existed.
 
-1. **The supersession marker must be in the same sentence as the old value** (rule revision 1, written by Claude,
+1. **The supersession marker must be in the same sentence as the old value** (rule revision 1,
    2026-11-06). Answers that scope the old value in the next sentence were counted as propagated. Example (SF4,
    Opus): "…2.707 yards for Defensive Coverage and 1.174 yards for Targeted Receiver. These figures are from week 1
    only…" The rule says MIXED; the auditor says current (4 of 4 such SF4 answers).
-2. **"week 1", "week-1" and "old" were removed from the supersession markers** (rule revision 2, 2026-11-06:
-   proposed by Claude, approved by Roy). The reason was real. For SF3, SF6 and SF7, "week 1" is how the old value
+2. **"week 1", "week-1" and "old" were removed from the supersession markers** (rule revision 2, 2026-11-06).
+   The reason was real. For SF3, SF6 and SF7, "week 1" is how the old value
    is described, so an answer giving "0.029 on week 1 data" as the answer would otherwise have been counted as
    flagged (OLD_FLAGGED), the flattering class. The cost fell on the other side. Every SF7 answer in every arm and
    condition reads like "3.5% on the full data, while on the week 1 sample it was 4.6%". The rule classed all 12
-   MIXED (propagated), and the auditor labelled all 12 current. **This single decision accounts for 12 of the 31
-   fragile-stratum disagreements.**
+   MIXED (propagated), and the auditor labelled all 12 current. **This accounts for 12 of the 31 disagreements, all on
+   SF7.**
 3. **The numeric patterns did not anticipate rounding**, and one fact's site list was incomplete. SF3's `current`
    patterns accept only 0.31 and 1.51. The answers say "about 0.3 yd at 1.9 s" and "past 1.5 yd by 3 s", so answers
    carrying both values were classed PROPAGATED or OTHER. The auditor labelled all 6 audited ones current. The same

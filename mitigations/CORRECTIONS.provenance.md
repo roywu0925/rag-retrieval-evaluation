@@ -34,11 +34,11 @@ Those fields were written on 2026-11-04/05, during corpus labelling. The stale-f
 - SF10 `current`: "Tier 2B / Part 3 completed: ..." is kept verbatim, although "Tier 2B" is the labeller's term.
 
 ## Whether constraint 2 was held: NOT in the strict sense
-The author (Claude, this session) wrote the 12 questions earlier the same day, so they were in context while this
-document was written. That cannot be undone. The mitigation is that no wording was authored freely: every entry is
+This document was produced in the same working session that wrote the 12 questions earlier the same day, so the
+questions were in context while it was written. That cannot be undone. The mitigation is that no wording was authored freely: every entry is
 the fixed template over fields that predate the questions, and every deviation is listed above. A strictly blind
-version needs an author who has not seen `eval/stale_patterns.json`, either Roy or a fresh agent given only
-stale_facts.json and this template.
+version needs an author who has not seen `eval/stale_patterns.json`, someone given only stale_facts.json and this
+template.
 
 ## Equal detail (constraint 3)
 - One template line per fact, with the same four parts.
