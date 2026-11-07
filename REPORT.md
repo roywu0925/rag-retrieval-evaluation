@@ -16,7 +16,9 @@ wrong on the cases that drove a headline number.**
    - On the sections Roy's own questions cover, LLM-generated questions retrieve their gold section more often than
      his. The gap is **somewhere between +9 and +58 points** (95% CI). This study cannot tell which end is true.
    - The point estimate (+31) is **likely larger than the true gap.** The design was pre-registered as underpowered,
-     and a significant result from an underpowered design is expected to be inflated (Type M error).
+     and a significant result from an underpowered design is expected to be inflated (Type M error). **A true gap
+     anywhere from 5 to 20 points produces significant estimates averaging 26-31, so the point estimate carries
+     almost no information about the true effect.**
    - A secondary, paired cut of the same human questions suggests that style and language each contribute. It is
      not significant on its own.
 2. **Not answerable here (pre-registered questions, with the numbers that would be needed):**
@@ -171,8 +173,8 @@ existed:
 The patterns were not retuned. The audit stands as the measurement of the classifier's error, which is what it was
 pre-registered to be.
 
-**Four instrument failures in all, and no automated test caught any of them.** The classifier above had passed
-all 44 of its constructed test cases. Three of the four were found only by reading output by hand:
+**Five instrument failures in all, and no automated test caught any of them.** The classifier above had passed
+all 44 of its constructed test cases. Four of the five were found only by reading output by hand:
 1. **The stale-fact classifier**: found by the pre-registered audit (the reading the design required).
 2. **The evidence-quote matcher**, with three layout bugs (blockquote markers, line wraps, table-row pipes) that
    falsely dropped 5 generated questions: found by reading the dropped quotes by hand.
@@ -180,6 +182,11 @@ all 44 of its constructed test cases. Three of the four were found only by readi
    excluded it from a headline rate: found by reading the answers behind an audit disagreement.
 4. **The abstention detector**, which read only English and missed a Chinese abstention, so B06 is 9/9, not 8/9:
    found by reading one answer while writing this report.
+5. **The headline interval.** The instruction to "report the interval" did not say how to compute it. The
+   percentile bootstrap first used has zero variance on the 27/27 generated set, which made the headline interval
+   too narrow ([+8, +54]; the score interval is [+9, +58]) and gave the paired interval an artefactual upper limit
+   of exactly 0. **Specified by Claude (the planning instructions); caught by Claude Code during execution**, by
+   reading a [100, 100] interval and asking how it was produced.
 
 **Methodological finding.** We avoided an LLM judge in favour of a deterministic, pre-registered string
 classifier, on the grounds that it is objective. On the cases that mattered it disagreed with a human auditor on 31
