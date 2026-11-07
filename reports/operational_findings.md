@@ -116,3 +116,23 @@ this caller. Earlier, a whole experimental axis (Cohere) was cut.
 **Lesson.** On Bedrock, for third-party models, check access with the IAM action set and a minimal real call per
 model ID. Do not rely on `get-foundation-model-availability` alone: its agreement field describes what this caller
 can subscribe to.
+
+## OF4: Cost, estimate against actual (us-west-2 list prices from the public AWS Price List; actuals from billed-token logs)
+
+| item | model | estimate (when made) | actual | note |
+|---|---|---|---|---|
+| Embeddings: 7 indexes, the corrections index, queries | Titan v2 | $0.01 | $0.0034 (171,888 tokens) | cache keyed on (model spec, input type, text) |
+| Tier A main pool, 35 questions (gen + verify) | Sonnet 4.6 | $0.33 | **$0.585 (+77%)** | under-counted input per call: section + tool definition, and the verifier re-sends the section (about 2,030 in/call) |
+| Verifier positive control + re-admits | Sonnet 4.6 | a few cents | $0.095 | 8 + 3 calls |
+| Tier A top-up pool, 15 | Sonnet 4.6 | about $0.27 | $0.277 | estimated with the measured per-call tokens |
+| Paired set, 13 x (MC + ME) | Sonnet 4.6 | about $0.30 | $0.397 | |
+| Anthropic access probe, 19 x 1-token calls | 5 callable models | < $0.001 | about $0.0003 | denied calls are not billed |
+| Stability check, 24 calls | Haiku 4.5 | about $0.08 | $0.078 | |
+| Sweep, 9 configs x 48 answers | Haiku 4.5 | $1.547 (projected after measuring the base config) | $1.545 | the first estimate, made before measuring, was $3.30 for 600 calls on assumed tokens |
+| Stale-fact main, 144 calls | Haiku 4.5 / Sonnet 4.6 / Opus 4.6 | $1.41 | $1.483 | |
+| **Total** | | about $4.24 (projection at the sweep checkpoint) | **$4.46** | budget $20; stop line $12 |
+
+**Lesson, measured.** The one estimate made from assumed tokens per call missed by 77%. Every estimate made after
+measuring one real call landed within 5%. The procedure adopted after the miss is to measure the first config and
+project the rest from the exact retrieved-context sizes, computed offline. That made the remaining spend
+predictable.
