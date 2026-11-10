@@ -89,8 +89,13 @@ triads remain (11 R-ME pairs).
   the "18,050 parameters" passage.
 - **B14 (multi-section):** strict 0/1 within top-5 (both groups covered only at rank 8), lenient 1/1 (rank 2). The
   strict-lenient gap is the shortcut route the pre-registration named.
-- **B09 (underspecified premise: "why is K5 the best?"):** scored by Roy on the generated answers (best/pass/fail).
-  **Pending.** The sheet is reports/audit/B09_worksheet.md.
+- **B09 (underspecified premise: "why is K5 the best?"):** hand-scored by Roy against the pre-registered
+  best/pass/fail rubric (reports/audit/B09_worksheet.md). **Base config: pass** (Roy's judgement). The answer ties K5's
+  standing to noise-augmented training ("Does training under noise help? Yes, decisively") and otherwise says the
+  documentation does not explain why. It accepts "K5 is the best" without the clean-data condition: it never says
+  that K3 is best on clean data. The other 8 configs' answers were provided for reference and were not scored,
+  so no cross-config B09 rate is reported. Retrieval ranks the gold section 1st in all 9 configs, so the miss is in
+  the reading, not the retrieval.
 
 ## Caveats carried from pre-registration
 

@@ -219,9 +219,12 @@ Full write-up: [reports/operational_findings.md](reports/operational_findings.md
 no source: résumé numbers, the cause of the Bedrock failures, and four claims in one write-up instruction. Each time
 the correction came from a file, a log or a real call, never from recall.
 
-## Pending
+## Hand-scored item
 
-- **B09** (the underspecified-premise question): Roy's best/pass/fail score on the generated answers.
+- **B09** (the underspecified-premise question, "why is K5 the best?"): Roy scored the base-config answer **pass**
+  on the pre-registered best/pass/fail rubric. The answer links K5 to noise-augmented training but accepts the
+  premise without saying that K3 is best on clean data. Retrieval ranked the gold section 1st, so the miss is in
+  the reading. The other 8 configs were not scored.
   [reports/audit/B09_worksheet.md](reports/audit/B09_worksheet.md).
 
 ## Reproducing
