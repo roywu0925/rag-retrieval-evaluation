@@ -221,6 +221,8 @@ next to those results.
   lowers retrievability (provenance file). Both biases run against the intervention.
 - **Retrieval-limited facts.** At baseline, SF3, SF10 and SF11 retrieve only old-value lines. Propagation on those is
   a retrieval failure, so headline rates are also reported without them.
+  [2026-11-11] Superseded. The audit disproved this for SF3, and retrieval cannot be separated from marking in
+  this corpus. See finding (c).
 
 ## Step 2 outputs (2026-11-06, Sonnet 4.6)
 - **Top-up pool** (eval/tier_a_topup.jsonl): 15 of 15 kept, 0 dropped, $0.277. Used only in analysis (3).

@@ -139,8 +139,9 @@ Two mitigations failed for reasons found **before** any answer:
 
 **What the stale-fact data does show:**
 - **All 5 human-labelled propagations are on the 2 facts the corpus never marks as corrected,** in all three models.
-- **Within those facts, the same model answers wrongly when retrieval returns only the old lines, and correctly
-  when an intervention swaps in the current lines.** The context decides, not the model.
+- **Within those facts, swapping the current lines into the context changes the answer in 5 of the 6 pairs under
+  the rule, but in only 2 of the 4 pairs that were hand-labelled on both sides; the other 2 do not change.**
+  Finding (c) gives the per-pair counts. The context decides, not the model.
 - **The limit:** this corpus has no unmarked fact whose correction is also retrieved, so "unmarked" cannot be
   separated from "not retrieved".
 

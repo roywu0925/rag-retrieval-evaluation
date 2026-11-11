@@ -25,3 +25,33 @@
 - **The same failure, once more, in the analysis itself.** I asked for "the interval" as the headline without
   checking how it was computed. The percentile bootstrap degenerates on a 27/27 set, and the interval was too narrow
   until it was recomputed with score intervals (REPORT.md section 3, failure 5).
+
+## Checking a drafted README against the files (2026-11-11)
+
+A README drafted for publication was checked claim by claim against the
+repository before being committed. Sixteen items failed across two rounds: five
+numeric or count errors, and eleven statements that the files did not support.
+Two are worth recording because of what kind of error they were:
+
+- The draft claimed the three pre-registered questions all had power analyses
+  computed before any result existed. The knob question had none; its ceiling was
+  established after the sweep. A prediction that holds and an explanation found
+  afterwards are not the same evidence, and the draft placed one as the other.
+- The drafts attributed stale-value propagation to retrieval; draft 2 read
+  "Retrieval largely determines whether a stale value is repeated". In this
+  corpus "the correction was not retrieved" and "the correction was not
+  marked" always co-occur, so retrieval cannot be isolated. This is the same
+  confound flagged earlier in the audit, stated in the opposite direction.
+
+Neither was caught by reading the draft. Both were caught by opening the files.
+
+One of the sixteen did not come from the draft: the "3 of 15" figure for
+SF11 originated in the checking report itself and was carried into the draft
+from there. The count is kept at sixteen because that is how many items had
+to be corrected before the file could be committed.
+
+`reports/stale_fact_rule.md` still states that propagation on SF3, SF10 and
+SF11 is "a retrieval failure, not a model failure". That file is the frozen
+pre-registration and part of the hash set: it records what was believed
+before any answer existed, and the audit later disproved it for SF3. It is
+left unedited deliberately. Finding (c) carries the corrected reading.
