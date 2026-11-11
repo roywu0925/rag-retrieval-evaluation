@@ -182,15 +182,3 @@ Post-publication edits to recorded artifacts: [`REDACTIONS.md`](REDACTIONS.md).
 
 The embedding cache is committed, so retrieval results can be reproduced without
 re-paying for embeddings.
-
-## A note on how this was built
-
-The study design, the pre-registration, the hand-written Chinese question set and
-all hand labels are the author's; the Tier A, top-up and paired question sets are
-machine-generated. Claude was used extensively throughout: as a collaborator on
-the experimental design, to write and run code, and to draft documentation.
-
-Errors went both ways, and both kinds were caught the same way: by opening
-the files rather than rereading the prose. Sixteen were found across two
-drafts of this README alone, before it was first committed. They are
-recorded in [`reports/notes_on_process.md`](reports/notes_on_process.md).
