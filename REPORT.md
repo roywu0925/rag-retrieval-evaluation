@@ -235,10 +235,15 @@ Re-running the analyses needs no API calls:
 
 ```
 .venv/bin/python scripts/analyze_sweep.py      # reports/sweep_results.md
-.venv/bin/python scripts/analyze_stale.py      # reports/stale_results.md
+.venv/bin/python scripts/audit_propagation_rate.py  # reports/audit/propagation_rate.json
+.venv/bin/python scripts/analyze_stale.py      # reports/stale_results.md (reads propagation_rate.json)
 .venv/bin/python scripts/score_audit.py        # reports/audit/agreement.md
 .venv/bin/python tests/test_hit_rule.py && .venv/bin/python tests/test_cache.py && .venv/bin/python tests/test_stale_classify.py
 ```
+
+`scripts/audit_propagation_rate.py` must run before `analyze_stale.py`. It recomputes the rule's and the hand
+audit's propagation rates from the raw answers and Roy's worksheets and writes `reports/audit/propagation_rate.json`;
+`analyze_stale.py` reads its audit-verdict figures from that file and stops if the file is missing.
 
 Generation and answer runs (`scripts/gen_tier_a.py`, `gen_paired.py`, `run_sweep.py`, `run_stale.py`) refuse to
 overwrite existing outputs. `run_stale.py` also refuses to run unless every hash in the freeze log matches.
