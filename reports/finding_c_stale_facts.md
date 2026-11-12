@@ -9,7 +9,7 @@ The pre-registered rule classifies **52 of 132 fact answers (39%) as propagated*
 conditions × 3 model arms (Haiku 4.5, Sonnet 4.6, Opus 4.6). It is the headline because the pre-registration names
 the rule's output as the headline. **The pre-registered hand audit shows this number is wrong by about a factor of
 ten.** On the auditor's labels, about **5 of 132 answers (4%; 95% upper bound 17%)** would leave a reader believing a
-superseded value is current. On the 36 answers that produce most of the rule's 39% (every answer the rule classed
+superseded value is current (17% is a two-sided 95% upper bound; derivation below). On the 36 answers that produce most of the rule's 39% (every answer the rule classed
 MIXED or OTHER, audited in full), the rule and the auditor agreed on **5 of 36 (0.14)**. Population-weighted
 agreement over all 132 answers is 0.64, below the pre-registered 0.85 threshold, so every rule-based stale-fact
 number is labelled rule-dependent. The 39% must not be quoted without this paragraph.
@@ -20,12 +20,17 @@ against that question directly, and the proxy failed. The pre-registration kept 
 never claimed the rule was right, and it pre-registered the audit (rule section 6) as the measurement of the rule's
 error. That measurement is what this section reports.
 
-How the 4% is estimated:
+How the 4% is estimated (computed by scripts/audit_propagation_rate.py; output in
+reports/audit/propagation_rate.json):
 - All 36 rule-fragile answers were labelled, and 5 of them are propagated.
-- 18 of the other 96 fact answers were sampled at random (seed 0) and labelled, and none is propagated.
+- The other 96 fact answers form the random-sample stratum: 18 of them were drawn at random (seed 0) and labelled,
+  and none is propagated; the remaining 78 were not sampled.
 - The lower bound, 5/132 = 3.8%, is exact.
-- The upper bound, 17%, takes the Clopper-Pearson 95% upper limit of 0/18 (0.185) for the unsampled stratum:
-  (5 + 0.185 × 96) / 132.
+- The upper bound, 17%, applies the two-sided 95% Clopper-Pearson upper limit of 0/18 (0.185) to the whole
+  random-sample stratum: (5 + 0.185 × 96) / 132. It is a two-sided 95% limit; the one-sided 95% limit would give
+  about 15%. The ×96 form is used because it is the more conservative one: it treats the 18 labelled answers as
+  uncertain too. Treating them as known zeros and applying the limit only to the 78 unsampled answers gives
+  (5 + 0.185 × 78) / 132 = 14.7%, reported as a sensitivity.
 
 ## The finding
 

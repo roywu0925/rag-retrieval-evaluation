@@ -1,6 +1,6 @@
 # Stale-fact results (scripts/analyze_stale.py; rule: reports/stale_fact_rule.md, frozen)
 
-> **AUDIT VERDICT. Read this before any number below.** Every class, rate and test in this file is the frozen RULE's output. The pre-registered blind hand audit (reports/audit/agreement.md) found the rule wrong on 31 of the 36 answers that drive its propagation count. Population agreement is 0.64, below the 0.85 threshold, so these results are RULE-DEPENDENT. The rule's pooled 39% propagation is about 10x the audited estimate of 4% (5/132; 95% upper bound 17%), and all 5 propagated answers are on the unmarked facts SF10 and SF11. See reports/finding_c_stale_facts.md.
+> **AUDIT VERDICT. Read this before any number below.** Every class, rate and test in this file is the frozen RULE's output. The pre-registered blind hand audit (reports/audit/agreement.md) found the rule wrong on 31 of the 36 answers that drive its propagation count. Population agreement is 0.64, below the 0.85 threshold, so these results are RULE-DEPENDENT. The rule's pooled 39% propagation is about 10x the audited estimate of 4% (5/132; two-sided 95% upper bound 17%; reports/audit/propagation_rate.json), and all 5 propagated answers are on the unmarked facts SF10 and SF11. See reports/finding_c_stale_facts.md.
 
 Descriptive by design (rule section 4): n = 11 facts per cell. A mitigation counts as an effect only if exact McNemar rejects. Abstention is measured under an explicit abstention instruction (upper bound).
 

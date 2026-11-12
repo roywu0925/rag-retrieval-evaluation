@@ -66,12 +66,20 @@ def main():
     conds = ["baseline", "exclude_context", "recency_git", "corrections_doc"]
     get = {(r["arm"], r["condition"], r["fact"]): r for r in A}
     out = {"rates": {}, "tests": {}, "noise": {}, "order_flags": [], "x1": {}, "crosstab": {}}
+    pr_path = ROOT / "reports/audit/propagation_rate.json"
+    if not pr_path.exists():
+        raise SystemExit(f"{pr_path.relative_to(ROOT)} missing: run scripts/audit_propagation_rate.py first")
+    pr = json.loads(pr_path.read_text())
+    rule_rate, hand = pr["rule_rate"], pr["hand_point_estimate"]
+    hand_up = pr["hand_upper_bound_two_sided_95"]["rate"]
     L = ["# Stale-fact results (scripts/analyze_stale.py; rule: reports/stale_fact_rule.md, frozen)\n",
          "> **AUDIT VERDICT. Read this before any number below.** Every class, rate and test in this file is the "
          "frozen RULE's output. The pre-registered blind hand audit (reports/audit/agreement.md) found the rule wrong on "
          "31 of the 36 answers that drive its propagation count. Population agreement is 0.64, below the 0.85 threshold, so "
-         "these results are RULE-DEPENDENT. The rule's pooled 39% propagation is about 10x the audited estimate of 4% "
-         "(5/132; 95% upper bound 17%), and all 5 propagated answers are on the unmarked facts SF10 and SF11. "
+         f"these results are RULE-DEPENDENT. The rule's pooled {rule_rate['rate']:.0%} propagation is about "
+         f"{round(rule_rate['rate'] / hand['rate'])}x the audited estimate of {hand['rate']:.0%} "
+         f"({hand['numerator']}/{hand['denominator']}; two-sided 95% upper bound {hand_up:.0%}; "
+         "reports/audit/propagation_rate.json), and all 5 propagated answers are on the unmarked facts SF10 and SF11. "
          "See reports/finding_c_stale_facts.md.\n",
          "Descriptive by design (rule section 4): n = 11 facts per cell. A mitigation counts as an effect only if exact "
          "McNemar rejects. Abstention is measured under an explicit abstention instruction (upper bound).\n"]

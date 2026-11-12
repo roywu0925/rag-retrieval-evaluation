@@ -1,0 +1,49 @@
+{
+ "population": {
+  "fact_answers": 132,
+  "excluded_x1_answers": 12
+ },
+ "strata": {
+  "census": {
+   "definition": "rule class MIXED / OLD_FLAGGED / OTHER",
+   "population": 36,
+   "hand_labelled": 36,
+   "hand_propagated": 5
+  },
+  "random": {
+   "definition": "all other fact answers; seed-0 random draw labelled",
+   "population": 96,
+   "hand_labelled": 18,
+   "hand_propagated": 0,
+   "not_sampled": 78
+  }
+ },
+ "rule_rate": {
+  "numerator": 52,
+  "denominator": 132,
+  "rate": 0.3939393939393939
+ },
+ "hand_point_estimate": {
+  "numerator": 5,
+  "denominator": 132,
+  "rate": 0.03787878787878788
+ },
+ "p_upper_two_sided_95_clopper_pearson": 0.1853019681378522,
+ "hand_upper_bound_two_sided_95": {
+  "formula": "(census hand_propagated + p_upper_two_sided_95_clopper_pearson x random population) / fact_answers",
+  "numerator": 22.78898894123381,
+  "denominator": 132,
+  "rate": 0.17264385561540765,
+  "note": "Published bound. Chosen because it is the more conservative: the labelled random-sample answers are treated as uncertain too."
+ },
+ "reference_one_sided_95": {
+  "p_upper_one_sided_95_clopper_pearson": 0.1533175539572782,
+  "hand_upper_bound_rate": 0.1493824634840811
+ },
+ "sensitivity_upper_bound_treating_18_labelled_random_as_known_zero": {
+  "formula": "(census hand_propagated + random hand_propagated + p_upper_two_sided_95_clopper_pearson x random not_sampled) / fact_answers",
+  "numerator": 19.45355351475247,
+  "denominator": 132,
+  "rate": 0.14737540541479144
+ }
+}
